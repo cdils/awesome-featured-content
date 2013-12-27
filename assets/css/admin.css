@@ -1,0 +1,10 @@
+select[name*="widget-awesome-feature"] { background: #F9F9F9; width: 100%; }
+
+.select2-container.awesomeness { width: 250px; }
+.select2-container.awesomeness,
+.select2-result-label .awesomeness,
+.select2-choice .awesomeness { font-size: 14px; vertical-align: middle; }
+
+.select2-container.awesomeness i,
+.select2-result-label .awesomeness i,
+.select2-choice .awesomeness i { font-size: 16px; margin-right: 8px; }

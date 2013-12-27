@@ -1,0 +1,21 @@
+a [class^="icon-"]:before,
+a [class*=" icon-"]:before {
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.awesome-feature .ico-bg a {
+	display: block;
+	overflow: hidden;
+	-webkit-transition: background .3s ease-in-out;
+	-moz-transition:    background .3s ease-in-out;
+	-ms-transition:     background .3s ease-in-out;
+	-o-transition:      background .3s ease-in-out;
+	transition:         background .3s ease-in-out;
+}
+
+.awesome-feature .ico-bg i {
+	display: block;
+	position: relative;
+	text-align: center;
+}
