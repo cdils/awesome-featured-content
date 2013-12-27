@@ -21,13 +21,13 @@ add_action( 'admin_enqueue_scripts', 'afcw_load_admin_styles' );
 function afcw_load_admin_styles( $hook ) {
 	global $afcw_settings_page;
 	$screen = get_current_screen();
-	$css_path = AFCW_PLUGIN_URL . 'assets/css/';
+	$css_uri = AFCW_PLUGIN_URL . 'assets/css/';
 
 	// Only enqueue on widgets.php
 	if ( 'widgets.php' == $hook ) {
-		wp_enqueue_style( 'afcw-select2-css', $css_path . 'select2.css', array(), '3.4.0' );
-		wp_enqueue_style( 'afcw-font-awesome', $css_path . 'font-awesome.min.css', array(), '3.2.0' );
-		wp_enqueue_style( 'afcw-admin', $css_path . 'admin.css', array(), '3.4.0' );
+		wp_enqueue_style( 'afcw-select2-css', $css_uri . 'select2.css', array(), '3.4.0' );
+		wp_enqueue_style( 'afcw-font-awesome', $css_uri . 'font-awesome.min.css', array(), '4.0.3' );
+		wp_enqueue_style( 'afcw-admin', $css_uri . 'admin.css', array(), '1.0.1' );
 	}
 
 	// Only enqueue on settings page

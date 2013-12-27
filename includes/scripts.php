@@ -46,34 +46,26 @@ function afcw_not_so_awesome_css() {
 
 	global $afcw_options;
 
-	$font_size = round( (int) $instance['size'] / 2 );
+	$font_size = round( (int) $afcw_options['font_size'] );
 	$icon_padding = round ( (int) $font_size / 2 );
 
 	/** The CSS to output */
 	$css = '
 	.awesome-feature .ico-bg a {
-		background: ' . $instance['background_color'] . ' !important;
-		-moz-border-radius: ' . $instance['border_radius'] . 'px
-		-webkit-border-radius: ' . $instance['border_radius'] . 'px;
-		border-radius: ' . $instance['border_radius'] . 'px;
-		color: ' . $instance['icon_color'] . ' !important;
-		font-size: ' . $font_size . 'px;
+		background: ' . $afcw_options['icon_background'] . ';
+		-moz-border-radius: ' . $afcw_options['border_radius'] . 'px
+		-webkit-border-radius: ' . $afcw_options['border_radius'] . 'px;
+		border-radius: ' . $afcw_options['border_radius'] . 'px;
 		padding: ' . $icon_padding . 'px;
 	}
 
 	.awesome-feature .ico-bg i {
-		color: rgba(6, 6, 6, 0.14);
-		display: block;
-		font-size: 80px;
-		padding: 25% 0;
-		cursor: pointer;
-		position: relative;
-		text-align: center;
+		color: ' . $afcw_options['icon_color'] . ';
+		font-size: ' . $font_size  . 'px;
 	}
 
 	.awesome-feature .ico-bg a:hover {
-		background-color: ' . $instance['background_color_hover'] . ' !important;
-		color: ' . $instance['icon_color_hover'] . ' !important;
+		background-color: ' . $afcw_options['icon_background_hover'] . ';
 	}';
 
 	/** Minify a bit */

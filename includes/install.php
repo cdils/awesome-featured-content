@@ -28,14 +28,14 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @return void
  */
 function afcw_install() {
-	global $wpdb, $afcw_options, $wp_version;
+	global $afcw_options, $wp_version;
 
 	if ( (float) $wp_version < 3.5 ) {
 		deactivate_plugins( plugin_basename( __FILE__ ) );
 		wp_die( __( 'Looks like you\'re running an older version of WordPress, you need to be running at least WordPress 3.3 to use Awesome Featured Content.', 'afcw' ), __( 'Awesome Featured Content is not compatible with this version of WordPress.', 'afcw' ), array( 'back_link' => true ) );
 	}
 
-	update_option( 'afcw_settings_general', $options );
+	update_option( 'edd_version', AFCW_VERSION );
 
 }
 register_activation_hook( AFCW_PLUGIN_FILE, 'afcw_install' );

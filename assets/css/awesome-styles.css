@@ -1,11 +1,15 @@
-a [class^="icon-"]:before,
-a [class*=" icon-"]:before {
+a .fa:before {
 	cursor: pointer;
 	text-decoration: none;
 }
 
-.awesome-feature .ico-bg a {
+.ico-bg {
 	display: block;
+	text-align: center;
+}
+
+.awesome-feature .ico-bg a {
+	display: inline-block;
 	overflow: hidden;
 	-webkit-transition: background .3s ease-in-out;
 	-moz-transition:    background .3s ease-in-out;
@@ -14,8 +18,8 @@ a [class*=" icon-"]:before {
 	transition:         background .3s ease-in-out;
 }
 
-.awesome-feature .ico-bg i {
-	display: block;
+.awesome-feature .ico-bg .fa {
+	cursor: pointer;
 	position: relative;
 	text-align: center;
 }

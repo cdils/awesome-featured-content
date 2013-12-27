@@ -37,12 +37,33 @@ function afcw_register_settings() {
 					'type' => 'colorpicker',
 					'std'  => __('#cccccc', 'afcw')
 				),
+				'icon_background_hover' => array(
+					'id' => 'icon_background_hover',
+					'name' => __('Icon Background Hover Color', 'afcw'),
+					'desc' => '',
+					'type' => 'colorpicker',
+					'std'  => __('#cccccc', 'afcw')
+				),
 				'icon_color' => array(
 					'id' => 'icon_color',
-					'name' => __('Icon Background Color', 'afcw'),
+					'name' => __('Icon Color', 'afcw'),
 					'desc' => '',
 					'type' => 'colorpicker',
 					'std'  => __('#000000', 'afcw')
+				),
+				'font_size' => array(
+					'id' => 'font_size',
+					'name' => __('Font Size', 'afcw'),
+					'desc' => '',
+					'type' => 'text',
+					'std'  => __('24', 'afcw')
+				),
+				'border_radius' => array(
+					'id' => 'border_radius',
+					'name' => __('Border Radius', 'afcw'),
+					'desc' => '',
+					'type' => 'text',
+					'std'  => __('10', 'afcw')
 				),
 			)
 		),

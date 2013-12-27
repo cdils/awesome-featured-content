@@ -105,7 +105,7 @@ class Awesome_Featured_Content {
 
 		// Plugin version
 		if ( ! defined( 'AFCW_VERSION' ) ) {
-			define( 'AFCW_VERSION', '1.0.0' );
+			define( 'AFCW_VERSION', '1.0.2' );
 		}
 
 		// Plugin Folder URL
