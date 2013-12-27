@@ -1,11 +1,11 @@
 <?php
 /**
- * Awesome Featured Page Widget
+ * Awesome Featured Content Widget
  *
  * Displays featured content and a Font Awesome icon
  * of the users choice.
  *
- * @package     AFPW
+ * @package     AFCW
  * @copyright   Copyright (c) 2013, FAT Media, LLC
  * @license     GPL-2.0+
  * @since       1.0.0
@@ -14,7 +14,7 @@
 /**
  * Awesome Feature widget class.
  *
- * @category AFPW
+ * @category AFCW
  * @package Widgets
  *
  * @since 1.0.0
@@ -364,7 +364,7 @@ class Awesome_Featured_Widget extends WP_Widget {
 
 		$widget_ops = array(
 			'classname'   => 'awesome-feature',
-			'description' => __( 'Displays a font awesome icon linked to a featured page of your choosing.', 'afpw' ),
+			'description' => __( 'Displays a font awesome icon linked to a featured page of your choosing.', 'afcw' ),
 		);
 
 		$control_ops = array(
@@ -373,7 +373,7 @@ class Awesome_Featured_Widget extends WP_Widget {
 			'height'  => 450,
 		);
 
-		parent::__construct('awesome-feature', __('Awesome Featured Page', 'afpw'), $widget_ops, $control_ops);
+		parent::__construct('awesome-feature', __('Awesome Featured Content', 'afcw'), $widget_ops, $control_ops);
 
 	}
 
@@ -487,26 +487,26 @@ class Awesome_Featured_Widget extends WP_Widget {
 		?>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title (Optional)', 'afpw' ); ?>:</label>
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title (Optional)', 'afcw' ); ?>:</label>
 			<input type="text" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo esc_attr( $instance['title'] ); ?>" class="widefat" />
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'awesome_icon' ); ?>"><?php _e( 'Choose an Icon', 'afpw' ); ?>:</label>
+			<label for="<?php echo $this->get_field_id( 'awesome_icon' ); ?>"><?php _e( 'Choose an Icon', 'afcw' ); ?>:</label>
 			<select class="widefat font-awesome" id="<?php echo $this->get_field_id( 'awesome_icon' ); ?>" name="<?php echo $this->get_field_name( 'awesome_icon' ); ?>">
 				<?php foreach ( (array) $this->icons as $icon  ) { ?>
-				<option value="<?php echo $icon['value']; ?>"<?php selected( $icon['value'], $instance['awesome_icon'] ); ?>><?php _e( $icon['name'], 'afpw' ) ?></option>
+				<option value="<?php echo $icon['value']; ?>"<?php selected( $icon['value'], $instance['awesome_icon'] ); ?>><?php _e( $icon['name'], 'afcw' ) ?></option>
 				<?php } ?>
 			</select>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'title_placement' ); ?>"><?php _e( 'Display the Title', 'afpw' ); ?>:</label>
+			<label for="<?php echo $this->get_field_id( 'title_placement' ); ?>"><?php _e( 'Display the Title', 'afcw' ); ?>:</label>
 			<select class="widefat" id="<?php echo $this->get_field_id( 'title_placement' ); ?>" name="<?php echo $this->get_field_name( 'title_placement' ); ?>">
-				<option value="before_icon" <?php selected( 'before_icon', $instance['title_placement'] ); ?>><?php _e( 'Before the Icon', 'afpw' ); ?></option>
-				<option value="after_icon" <?php selected( 'after_icon', $instance['title_placement'] ); ?>><?php _e( 'After the Icon', 'afpw' ); ?></option>
+				<option value="before_icon" <?php selected( 'before_icon', $instance['title_placement'] ); ?>><?php _e( 'Before the Icon', 'afcw' ); ?></option>
+				<option value="after_icon" <?php selected( 'after_icon', $instance['title_placement'] ); ?>><?php _e( 'After the Icon', 'afcw' ); ?></option>
 			</select>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'awesome_id' ); ?>"><?php _e( 'Link to Page', 'afpw' ); ?>:</label>
+			<label for="<?php echo $this->get_field_id( 'awesome_id' ); ?>"><?php _e( 'Link to Page', 'afcw' ); ?>:</label>
 			<?php wp_dropdown_pages( array( 'name' => $this->get_field_name( 'awesome_id' ), 'selected' => $instance['awesome_id'] ) ); ?>
 		</p>
 
@@ -514,10 +514,10 @@ class Awesome_Featured_Widget extends WP_Widget {
 
 		<p>
 			<input id="<?php echo $this->get_field_id('awesome_filter'); ?>" name="<?php echo $this->get_field_name('awesome_filter'); ?>" type="checkbox" <?php checked(isset($instance['awesome_filter']) ? $instance['awesome_filter'] : 0); ?> />&nbsp;
-			<label for="<?php echo $this->get_field_id('awesome_filter'); ?>"><?php _e('Automatically add paragraphs', 'afpw'); ?></label>
+			<label for="<?php echo $this->get_field_id('awesome_filter'); ?>"><?php _e('Automatically add paragraphs', 'afcw'); ?></label>
 		</p>
 		<p>
-			<a href="options-general.php?page=awesome-featured-page"><?php _e('Visit the Settings Page for More Options', 'afpw'); ?></a>
+			<a href="options-general.php?page=awesome-featured-content"><?php _e('Visit the Settings Page for More Options', 'afcw'); ?></a>
 		</p>
 
 		<?php

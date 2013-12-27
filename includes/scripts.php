@@ -2,7 +2,7 @@
 /**
  * Font-End Scripts
  *
- * @package     AFPW
+ * @package     AFCW
  * @subpackage  Functions
  * @copyright   Copyright (c) 2013, FAT Media, LLC
  * @license     GPL-2.0+
@@ -12,7 +12,7 @@
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-add_action( 'wp_enqueue_scripts', 'afpw_add_styles' );
+add_action( 'wp_enqueue_scripts', 'afcw_add_styles' );
 /**
  * Registers and loads the Font Awesome
  * library and other required styles.
@@ -21,30 +21,30 @@ add_action( 'wp_enqueue_scripts', 'afpw_add_styles' );
  * @global $wp_styles
  * @global $is_IE
  */
-function afpw_add_styles() {
+function afcw_add_styles() {
 	global $wp_styles, $is_IE;
-	$css_url = AFPW_PLUGIN_URL . 'assets/css/';
+	$css_url = AFCW_PLUGIN_URL . 'assets/css/';
 
 	// Enqueu styles
-	wp_enqueue_style( 'afpw-font-awesome', $css_url . 'font-awesome.min.css', array(), '3.2.0' );
-	wp_enqueue_style( 'afpw-styles', $css_url . 'awesome-styles.css', array(), '1.0.0' );
+	wp_enqueue_style( 'afcw-font-awesome', $css_url . 'font-awesome.min.css', array(), '3.2.0' );
+	wp_enqueue_style( 'afcw-styles', $css_url . 'awesome-styles.css', array(), '1.0.0' );
 
 	if ( $is_IE ) {
-		wp_enqueue_style( 'afpw-font-awesome-ie', $css_url . 'font-awesome-ie7.min.css', array(), '3.2.0' );
-		$wp_styles->add_data( 'afpw-font-awesome-ie', 'conditional', 'lte IE 7' );
+		wp_enqueue_style( 'afcw-font-awesome-ie', $css_url . 'font-awesome-ie7.min.css', array(), '3.2.0' );
+		$wp_styles->add_data( 'afcw-font-awesome-ie', 'conditional', 'lte IE 7' );
 	}
 }
 
 /** Load CSS in <head> */
-add_action( 'wp_head', 'afpw_not_so_awesome_css' );
+add_action( 'wp_head', 'afcw_not_so_awesome_css' );
 /**
  * Custom CSS.
  *
  * Output custom CSS to control the look of the icons.
  */
-function afpw_not_so_awesome_css() {
+function afcw_not_so_awesome_css() {
 
-	global $afpw_options;
+	global $afcw_options;
 
 	$font_size = round( (int) $instance['size'] / 2 );
 	$icon_padding = round ( (int) $font_size / 2 );

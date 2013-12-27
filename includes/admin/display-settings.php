@@ -2,7 +2,7 @@
 /**
  * Admin Options Page
  *
- * @package     WPFP
+ * @package     AFCW
  * @subpackage  Admin/Settings
  * @copyright   Copyright (c) 2013, FAT Media, LLC
  * @license     GPL-2.0+
@@ -18,22 +18,22 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * Renders the options page contents.
  *
  * @since 1.0.0
- * @global $afpw_options Array of all the WPFP Options
+ * @global $afcw_options Array of all the AFCW Options
  * @return void
  */
-function afpw_options_page() {
-	global $afpw_options;
+function afcw_options_page() {
+	global $afcw_options;
 
 	ob_start();
 	?>
 	<div class="wrap">
 		<div class="icon32" id="icon-options-general"><br></div>
-		<h2><?php _e( 'Awesome Featured Page Settings', 'afpw' ); ?></h2>
+		<h2><?php _e( 'Awesome Featured Content Settings', 'afcw' ); ?></h2>
 
 			<form method="post" action="options.php">
 				<?php
-				settings_fields( 'afpw_settings_general' );
-				do_settings_sections( 'afpw_settings_general' );
+				settings_fields( 'afcw_settings_general' );
+				do_settings_sections( 'afcw_settings_general' );
 				submit_button();
 				?>
 			</form>

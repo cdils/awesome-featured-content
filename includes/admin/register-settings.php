@@ -2,7 +2,7 @@
 /**
  * Register Settings
  *
- * @package     WPFP
+ * @package     AFCW
  * @subpackage  Admin/Settings
  * @copyright   Copyright (c) 2013, Robert Neu
  * @license     GPL-2.0+
@@ -13,59 +13,59 @@
 if ( !defined( 'ABSPATH' ) ) exit;
 
 /**
- * Registers all off the required WPFP settings and provides hooks for extensions
+ * Registers all off the required AFCW settings and provides hooks for extensions
  * to add their own settings to either the General, Gateways, Emails, Styles
  * or Misc Settings Pages
  *
  * @since 1.0.0
  * @return void
 */
-function afpw_register_settings() {
+function afcw_register_settings() {
 
 	/**
-	 * 'Whitelisted' WPFP settings, filters are provided for each settings
+	 * 'Whitelisted' AFCW settings, filters are provided for each settings
 	 * section to allow extensions and other plugins to add their own settings
 	 */
-	$afpw_settings = array(
+	$afcw_settings = array(
 		/** General Settings */
-		'general' => apply_filters('afpw_settings_general',
+		'general' => apply_filters('afcw_settings_general',
 			array(
 				'icon_background' => array(
 					'id' => 'icon_background',
-					'name' => __('Icon Background Color', 'afpw'),
+					'name' => __('Icon Background Color', 'afcw'),
 					'desc' => '',
 					'type' => 'colorpicker',
-					'std'  => __('#cccccc', 'afpw')
+					'std'  => __('#cccccc', 'afcw')
 				),
 				'icon_color' => array(
 					'id' => 'icon_color',
-					'name' => __('Icon Background Color', 'afpw'),
+					'name' => __('Icon Background Color', 'afcw'),
 					'desc' => '',
 					'type' => 'colorpicker',
-					'std'  => __('#000000', 'afpw')
+					'std'  => __('#000000', 'afcw')
 				),
 			)
 		),
 	);
 
-	if ( false == get_option( 'afpw_settings_general' ) ) {
-		add_option( 'afpw_settings_general' );
+	if ( false == get_option( 'afcw_settings_general' ) ) {
+		add_option( 'afcw_settings_general' );
 	}
 
 	add_settings_section(
-		'afpw_settings_general',
-		__( 'General Settings', 'afpw' ),
+		'afcw_settings_general',
+		__( 'General Settings', 'afcw' ),
 		'__return_false',
-		'afpw_settings_general'
+		'afcw_settings_general'
 	);
 
-	foreach ( $afpw_settings['general'] as $option ) {
+	foreach ( $afcw_settings['general'] as $option ) {
 		add_settings_field(
-			'afpw_settings_general[' . $option['id'] . ']',
+			'afcw_settings_general[' . $option['id'] . ']',
 			$option['name'],
-			function_exists( 'afpw_' . $option['type'] . '_callback' ) ? 'afpw_' . $option['type'] . '_callback' : 'afpw_missing_callback',
-			'afpw_settings_general',
-			'afpw_settings_general',
+			function_exists( 'afcw_' . $option['type'] . '_callback' ) ? 'afcw_' . $option['type'] . '_callback' : 'afcw_missing_callback',
+			'afcw_settings_general',
+			'afcw_settings_general',
 			array(
 				'id' => $option['id'],
 				'desc' => $option['desc'],
@@ -79,9 +79,9 @@ function afpw_register_settings() {
 	}
 
 	// Creates our settings in the options table
-	register_setting( 'afpw_settings_general',  'afpw_settings_general',  'afpw_settings_sanitize' );
+	register_setting( 'afcw_settings_general',  'afcw_settings_general',  'afcw_settings_sanitize' );
 }
-add_action('admin_init', 'afpw_register_settings');
+add_action('admin_init', 'afcw_register_settings');
 
 /**
  * Header Callback
@@ -92,7 +92,7 @@ add_action('admin_init', 'afpw_register_settings');
  * @param array $args Arguments passed by the setting
  * @return void
  */
-function afpw_header_callback( $args ) {
+function afcw_header_callback( $args ) {
 	echo '';
 }
 
@@ -103,15 +103,15 @@ function afpw_header_callback( $args ) {
  *
  * @since 1.0.0
  * @param array $args Arguments passed by the setting
- * @global $afpw_options Array of all the WPFP Options
+ * @global $afcw_options Array of all the AFCW Options
  * @return void
  */
-function afpw_checkbox_callback( $args ) {
-	global $afpw_options;
+function afcw_checkbox_callback( $args ) {
+	global $afcw_options;
 
-	$checked = isset($afpw_options[$args['id']]) ? checked(1, $afpw_options[$args['id']], false) : '';
-	$html = '<input type="checkbox" id="afpw_settings_' . $args['section'] . '[' . $args['id'] . ']" name="afpw_settings_' . $args['section'] . '[' . $args['id'] . ']" value="1" ' . $checked . '/>';
-	$html .= '<label for="afpw_settings_' . $args['section'] . '[' . $args['id'] . ']"> '  . $args['desc'] . '</label>';
+	$checked = isset($afcw_options[$args['id']]) ? checked(1, $afcw_options[$args['id']], false) : '';
+	$html = '<input type="checkbox" id="afcw_settings_' . $args['section'] . '[' . $args['id'] . ']" name="afcw_settings_' . $args['section'] . '[' . $args['id'] . ']" value="1" ' . $checked . '/>';
+	$html .= '<label for="afcw_settings_' . $args['section'] . '[' . $args['id'] . ']"> '  . $args['desc'] . '</label>';
 
 	echo $html;
 }
@@ -123,16 +123,16 @@ function afpw_checkbox_callback( $args ) {
  *
  * @since 1.0.0
  * @param array $args Arguments passed by the setting
- * @global $afpw_options Array of all the WPFP Options
+ * @global $afcw_options Array of all the AFCW Options
  * @return void
  */
-function afpw_multicheck_callback( $args ) {
-	global $afpw_options;
+function afcw_multicheck_callback( $args ) {
+	global $afcw_options;
 
 	foreach( $args['options'] as $key => $option ):
-		if( isset( $afpw_options[$args['id']][$key] ) ) { $enabled = $option; } else { $enabled = NULL; }
-		echo '<input name="afpw_settings_' . $args['section'] . '[' . $args['id'] . '][' . $key . ']"" id="afpw_settings_' . $args['section'] . '[' . $args['id'] . '][' . $key . ']" type="checkbox" value="' . $option . '" ' . checked($option, $enabled, false) . '/>&nbsp;';
-		echo '<label for="afpw_settings_' . $args['section'] . '[' . $args['id'] . '][' . $key . ']">' . $option . '</label><br/>';
+		if( isset( $afcw_options[$args['id']][$key] ) ) { $enabled = $option; } else { $enabled = NULL; }
+		echo '<input name="afcw_settings_' . $args['section'] . '[' . $args['id'] . '][' . $key . ']"" id="afcw_settings_' . $args['section'] . '[' . $args['id'] . '][' . $key . ']" type="checkbox" value="' . $option . '" ' . checked($option, $enabled, false) . '/>&nbsp;';
+		echo '<label for="afcw_settings_' . $args['section'] . '[' . $args['id'] . '][' . $key . ']">' . $option . '</label><br/>';
 	endforeach;
 	echo '<p class="description">' . $args['desc'] . '</p>';
 }
@@ -144,20 +144,20 @@ function afpw_multicheck_callback( $args ) {
  *
  * @since 1.3.3
  * @param array $args Arguments passed by the setting
- * @global $afpw_options Array of all the WPFP Options
+ * @global $afcw_options Array of all the AFCW Options
  * @return void
  */
-function afpw_radio_callback( $args ) {
-	global $afpw_options;
+function afcw_radio_callback( $args ) {
+	global $afcw_options;
 
 	foreach ( $args['options'] as $key => $option ) :
 		$checked = false;
 
-		if ( isset( $afpw_options[ $args['id'] ] ) && $afpw_options[ $args['id'] ] == $key )
+		if ( isset( $afcw_options[ $args['id'] ] ) && $afcw_options[ $args['id'] ] == $key )
 			$checked = true;
 
-		echo '<input name="afpw_settings_' . $args['section'] . '[' . $args['id'] . ']"" id="afpw_settings_' . $args['section'] . '[' . $args['id'] . '][' . $key . ']" type="radio" value="' . $key . '" ' . checked(true, $checked, false) . '/>&nbsp;';
-		echo '<label for="afpw_settings_' . $args['section'] . '[' . $args['id'] . '][' . $key . ']">' . $option . '</label><br/>';
+		echo '<input name="afcw_settings_' . $args['section'] . '[' . $args['id'] . ']"" id="afcw_settings_' . $args['section'] . '[' . $args['id'] . '][' . $key . ']" type="radio" value="' . $key . '" ' . checked(true, $checked, false) . '/>&nbsp;';
+		echo '<label for="afcw_settings_' . $args['section'] . '[' . $args['id'] . '][' . $key . ']">' . $option . '</label><br/>';
 	endforeach;
 
 	echo '<p class="description">' . $args['desc'] . '</p>';
@@ -170,20 +170,20 @@ function afpw_radio_callback( $args ) {
  *
  * @since 1.0.0
  * @param array $args Arguments passed by the setting
- * @global $afpw_options Array of all the WPFP Options
+ * @global $afcw_options Array of all the AFCW Options
  * @return void
  */
-function afpw_text_callback( $args ) {
-	global $afpw_options;
+function afcw_text_callback( $args ) {
+	global $afcw_options;
 
-	if ( isset( $afpw_options[ $args['id'] ] ) )
-		$value = $afpw_options[ $args['id'] ];
+	if ( isset( $afcw_options[ $args['id'] ] ) )
+		$value = $afcw_options[ $args['id'] ];
 	else
 		$value = isset( $args['std'] ) ? $args['std'] : '';
 
 	$size = isset( $args['size'] ) && !is_null($args['size']) ? $args['size'] : 'regular';
-	$html = '<input type="text" class="' . $args['size'] . '-text" id="afpw_settings_' . $args['section'] . '[' . $args['id'] . ']" name="afpw_settings_' . $args['section'] . '[' . $args['id'] . ']" value="' . esc_attr( $value ) . '"/>';
-	$html .= '<label for="afpw_settings_' . $args['section'] . '[' . $args['id'] . ']"> '  . $args['desc'] . '</label>';
+	$html = '<input type="text" class="' . $args['size'] . '-text" id="afcw_settings_' . $args['section'] . '[' . $args['id'] . ']" name="afcw_settings_' . $args['section'] . '[' . $args['id'] . ']" value="' . esc_attr( $value ) . '"/>';
+	$html .= '<label for="afcw_settings_' . $args['section'] . '[' . $args['id'] . ']"> '  . $args['desc'] . '</label>';
 
 	echo $html;
 }
@@ -195,20 +195,20 @@ function afpw_text_callback( $args ) {
  *
  * @since 1.0.0
  * @param array $args Arguments passed by the setting
- * @global $afpw_options Array of all the WPFP Options
+ * @global $afcw_options Array of all the AFCW Options
  * @return void
  */
-function afpw_textarea_callback( $args ) {
-	global $afpw_options;
+function afcw_textarea_callback( $args ) {
+	global $afcw_options;
 
-	if ( isset( $afpw_options[ $args['id'] ] ) )
-		$value = $afpw_options[ $args['id'] ];
+	if ( isset( $afcw_options[ $args['id'] ] ) )
+		$value = $afcw_options[ $args['id'] ];
 	else
 		$value = isset( $args['std'] ) ? $args['std'] : '';
 
 	$size = isset( $args['size'] ) && !is_null($args['size']) ? $args['size'] : 'regular';
-	$html = '<textarea class="large-text" cols="50" rows="5" id="afpw_settings_' . $args['section'] . '[' . $args['id'] . ']" name="afpw_settings_' . $args['section'] . '[' . $args['id'] . ']">' . esc_textarea( $value ) . '</textarea>';
-	$html .= '<label for="afpw_settings_' . $args['section'] . '[' . $args['id'] . ']"> '  . $args['desc'] . '</label>';
+	$html = '<textarea class="large-text" cols="50" rows="5" id="afcw_settings_' . $args['section'] . '[' . $args['id'] . ']" name="afcw_settings_' . $args['section'] . '[' . $args['id'] . ']">' . esc_textarea( $value ) . '</textarea>';
+	$html .= '<label for="afcw_settings_' . $args['section'] . '[' . $args['id'] . ']"> '  . $args['desc'] . '</label>';
 
 	echo $html;
 }
@@ -221,20 +221,20 @@ function afpw_textarea_callback( $args ) {
  *
  * @since 1.0.0
  * @param array $args Arguments passed by the setting
- * @global $afpw_options Array of all the WPFP Options
+ * @global $afcw_options Array of all the AFCW Options
  * @return void
  */
-function afpw_colorpicker_callback( $args ) {
-	global $afpw_options;
+function afcw_colorpicker_callback( $args ) {
+	global $afcw_options;
 
-	if ( isset( $afpw_options[ $args['id'] ] ) )
-		$value = $afpw_options[ $args['id'] ];
+	if ( isset( $afcw_options[ $args['id'] ] ) )
+		$value = $afcw_options[ $args['id'] ];
 	else
 		$value = isset( $args['std'] ) ? $args['std'] : '';
 
 	$size = isset( $args['size'] ) && !is_null($args['size']) ? $args['size'] : 'regular';
-	$html = '<input type="text" class="' . $args['size'] . '-colorpicker wp-color-picker" id="afpw_settings_' . $args['section'] . '[' . $args['id'] . ']" name="afpw_settings_' . $args['section'] . '[' . $args['id'] . ']" value="' . esc_attr( $value ) . '"/>';
-	$html .= '<label for="afpw_settings_' . $args['section'] . '[' . $args['id'] . ']"> '  . $args['desc'] . '</label>';
+	$html = '<input type="text" class="' . $args['size'] . '-colorpicker wp-color-picker" id="afcw_settings_' . $args['section'] . '[' . $args['id'] . ']" name="afcw_settings_' . $args['section'] . '[' . $args['id'] . ']" value="' . esc_attr( $value ) . '"/>';
+	$html .= '<label for="afcw_settings_' . $args['section'] . '[' . $args['id'] . ']"> '  . $args['desc'] . '</label>';
 
 	echo $html;
 }
@@ -248,8 +248,8 @@ function afpw_colorpicker_callback( $args ) {
  * @param array $args Arguments passed by the setting
  * @return void
  */
-function afpw_missing_callback($args) {
-	printf( __( 'The callback function used for the <strong>%s</strong> setting is missing.', 'afpw' ), $args['id'] );
+function afcw_missing_callback($args) {
+	printf( __( 'The callback function used for the <strong>%s</strong> setting is missing.', 'afcw' ), $args['id'] );
 }
 
 /**
@@ -259,21 +259,21 @@ function afpw_missing_callback($args) {
  *
  * @since 1.0.0
  * @param array $args Arguments passed by the setting
- * @global $afpw_options Array of all the WPFP Options
+ * @global $afcw_options Array of all the AFCW Options
  * @return void
  */
-function afpw_select_callback($args) {
-	global $afpw_options;
+function afcw_select_callback($args) {
+	global $afcw_options;
 
-	$html = '<select id="afpw_settings_' . $args['section'] . '[' . $args['id'] . ']" name="afpw_settings_' . $args['section'] . '[' . $args['id'] . ']"/>';
+	$html = '<select id="afcw_settings_' . $args['section'] . '[' . $args['id'] . ']" name="afcw_settings_' . $args['section'] . '[' . $args['id'] . ']"/>';
 
 	foreach ( $args['options'] as $option => $name ) :
-		$selected = isset( $afpw_options[ $args['id'] ] ) ? selected( $option, $afpw_options[$args['id']], false ) : '';
+		$selected = isset( $afcw_options[ $args['id'] ] ) ? selected( $option, $afcw_options[$args['id']], false ) : '';
 		$html .= '<option value="' . $option . '" ' . $selected . '>' . $name . '</option>';
 	endforeach;
 
 	$html .= '</select>';
-	$html .= '<label for="afpw_settings_' . $args['section'] . '[' . $args['id'] . ']"> '  . $args['desc'] . '</label>';
+	$html .= '<label for="afcw_settings_' . $args['section'] . '[' . $args['id'] . ']"> '  . $args['desc'] . '</label>';
 
 	echo $html;
 }
@@ -287,8 +287,8 @@ function afpw_select_callback($args) {
  * @param array $args Arguments passed by the setting
  * @return void
  */
-function afpw_hook_callback( $args ) {
-	do_action( 'afpw_' . $args['id'] );
+function afcw_hook_callback( $args ) {
+	do_action( 'afcw_' . $args['id'] );
 }
 
 /**
@@ -301,8 +301,8 @@ function afpw_hook_callback( $args ) {
  * @param array $input The value inputted in the field
  * @return string $input Sanitizied value
  */
-function afpw_settings_sanitize( $input ) {
-	add_settings_error( 'afpw-notices', '', __('Settings Updated', 'afpw'), 'updated' );
+function afcw_settings_sanitize( $input ) {
+	add_settings_error( 'afcw-notices', '', __('Settings Updated', 'afcw'), 'updated' );
 	return $input;
 }
 
@@ -312,10 +312,10 @@ function afpw_settings_sanitize( $input ) {
  * Retrieves all plugin settings and returns them as a combined array.
  *
  * @since 1.0.0
- * @return array Merged array of all the WPFP settings
+ * @return array Merged array of all the AFCW settings
  */
-function afpw_get_settings() {
-	$general_settings = is_array( get_option( 'afpw_settings_general' ) )  ? get_option( 'afpw_settings_general' )  : array();
+function afcw_get_settings() {
+	$general_settings = is_array( get_option( 'afcw_settings_general' ) )  ? get_option( 'afcw_settings_general' )  : array();
 
 	return array_merge( $general_settings );
 }
@@ -325,30 +325,30 @@ function afpw_get_settings() {
  * group and links to global variables
  *
  * @since 1.0.0
- * @global $afpw_settings_page
+ * @global $afcw_settings_page
  * @return void
  */
-function afpw_add_options_link() {
-	global $afpw_settings_page;
+function afcw_add_options_link() {
+	global $afcw_settings_page;
 
-	$afpw_settings_page = add_options_page( __( 'Awesome Featured Page Settings', 'afpw' ), __( 'Awesome Featured', 'afpw' ), 'manage_options', 'awesome-featured-page', 'afpw_options_page' );
+	$afcw_settings_page = add_options_page( __( 'Awesome Featured Content Settings', 'afcw' ), __( 'Awesome Featured', 'afcw' ), 'manage_options', 'awesome-featured-content', 'afcw_options_page' );
 
 }
-add_action( 'admin_menu', 'afpw_add_options_link', 10 );
+add_action( 'admin_menu', 'afcw_add_options_link', 10 );
 
 /**
  * Displays a link to the settings
  * page in the plugin action links
  *
  * @since 1.0.0
- * @global $afpw_settings_page
+ * @global $afcw_settings_page
  * @return void
  */
-function afpw_plugin_settings_link($links) {
-  $settings_link = '<a href="options-general.php?page=awesome-featured-page">Settings</a>';
+function afcw_plugin_settings_link($links) {
+  $settings_link = '<a href="options-general.php?page=awesome-featured-content">Settings</a>';
   array_unshift($links, $settings_link);
   return $links;
 }
 
-$plugin = plugin_basename(AFPW_PLUGIN_FILE);
-add_filter("plugin_action_links_$plugin", 'afpw_plugin_settings_link' );
+$plugin = plugin_basename(AFCW_PLUGIN_FILE);
+add_filter("plugin_action_links_$plugin", 'afcw_plugin_settings_link' );
