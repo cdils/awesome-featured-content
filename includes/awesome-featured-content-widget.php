@@ -45,7 +45,7 @@ class Awesome_Featured_Widget extends WP_Widget {
 			'awesome_id'        => '',
 			'awesome_icon'      => '',
 			'awesome_text'      => '',
-			'icon_placement'   => 'after_title',
+			'icon_placement'    => 'after_title',
 			'awesome_filter'    => '',
 		);
 
@@ -58,7 +58,7 @@ class Awesome_Featured_Widget extends WP_Widget {
 		$this->icons = array(
 			array(
 				'name'  => '',
-				'value' => ''
+				'value' => '',
 			),
 			array(
 				'name'  => 'Adjust',
@@ -1562,10 +1562,10 @@ class Awesome_Featured_Widget extends WP_Widget {
 		$instance = wp_parse_args( (array) $instance, $this->defaults );
 
 		/* User-selected settings. */
-		$awesome_title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
-		$awesome_icon = $instance['awesome_icon'];
+		$awesome_title  = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
+		$awesome_icon   = $instance['awesome_icon'];
 		$icon_placement = $instance['icon_placement'];
-		$awesome_text = apply_filters( 'widget_text', empty( $instance['awesome_text'] ) ? '' : $instance['awesome_text'], $instance );
+		$awesome_text   = apply_filters( 'widget_text', empty( $instance['awesome_text'] ) ? '' : $instance['awesome_text'], $instance );
 
 		/* HTML output */
 		echo $before_widget;
@@ -1613,44 +1613,38 @@ class Awesome_Featured_Widget extends WP_Widget {
 	 * @return array Settings to save or bool false to cancel saving
 	 */
 	function update( $new_instance, $old_instance ) {
-		$new_instance['title'] = strip_tags( $new_instance['title'] );
-		$new_instance['awesome_icon'] = strip_tags( $new_instance['awesome_icon'] );
-		$new_instance['icon_placement'] = strip_tags( $new_instance['icon_placement'] );
-		if ( current_user_can('unawesome_filtered_html') ) {
+		$new_instance['title']            = strip_tags( $new_instance['title'] );
+		$new_instance['awesome_icon']     = strip_tags( $new_instance['awesome_icon'] );
+		$new_instance['icon_placement']   = strip_tags( $new_instance['icon_placement'] );
+		if ( current_user_can( 'unfiltered_html' ) ) {
 			$new_instance['awesome_text'] =  $new_instance['awesome_text'];
 		} else {
-			$new_instance['awesome_text'] = stripslashes( wp_filter_post_kses( addslashes($new_instance['awesome_text']) ) ); // wp_filter_post_kses() expects slashed
+			$new_instance['awesome_text'] = stripslashes( wp_filter_post_kses( addslashes( $new_instance['awesome_text'] ) ) );
 		}
-		$new_instance['awesome_filter'] = isset($new_instance['awesome_filter']);
-		foreach ( $new_instance as $key => $value ) {
+		$new_instance['awesome_filter']   = isset( $new_instance['awesome_filter'] );
 
-			/** Border radius and Icon size must not be empty, must be a digit */
-			if ( ( 'border_radius' == $key || 'size' == $key ) && ( '' == $value || ! ctype_digit( $value ) ) ) {
-				$new_instance[$key] = 0;
-			}
-
-			/** Validate hex code colors */
-			elseif ( strpos( $key, '_color' ) && 0 == preg_match( '/^#(([a-fA-F0-9]{3}$)|([a-fA-F0-9]{6}$))/', $value ) ) {
-				$new_instance[$key] = $old_instance[$key];
-			}
-
-			/** Sanitize Profile URIs */
-			elseif ( array_key_exists( $key, (array) $this->profiles ) ) {
-				$new_instance[$key] = esc_url( $new_instance[$key] );
-			}
-
-		}
 		return $new_instance;
 	}
 
 	function generate_post_select( $select_id, $post_type, $selected = 0 ) {
-		$posts = get_posts(array('post_type'=> $post_type, 'post_status'=> 'publish', 'suppress_filters' => false, 'posts_per_page'=>-1 ) );
+		$args = array(
+			'post_type'        => $post_type,
+			'post_status'      => 'publish',
+			'suppress_filters' => false,
+			'posts_per_page'   => -1
+		);
+		// Get all published posts.
+		$posts = get_posts( $args );
+
+		// Display the select field.
 		echo '<select class="widefat" name="'. $select_id .'" id="'.$select_id.'">';
-		foreach ( $posts as $post ) {
-			echo '<option value="', $post->ID, '"', $selected == $post->ID ? ' selected="selected"' : '', '>', $post->post_title, '</option>';
-		}
+			if ( $posts ) {
+				foreach ( $posts as $post ) {
+					echo '<option value="', $post->ID, '"', $selected == $post->ID ? ' selected="selected"' : '', '>', $post->post_title, '</option>';
+				}
+				wp_reset_postdata();
+			}
 		echo '</select>';
-		wp_reset_postdata();
 	}
 
 	/**
@@ -1661,8 +1655,8 @@ class Awesome_Featured_Widget extends WP_Widget {
 	function form( $instance ) {
 
 		/** Merge with defaults */
-		$instance = wp_parse_args( (array) $instance, $this->defaults );
-		$title = strip_tags($instance['title']);
+		$instance     = wp_parse_args( (array) $instance, $this->defaults );
+		$title        = strip_tags($instance['title']);
 		$awesome_text = esc_textarea($instance['awesome_text']);
 
 		?>
