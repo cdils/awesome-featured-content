@@ -56,312 +56,1483 @@ class Awesome_Featured_Widget extends WP_Widget {
 		* @link http://ivaynberg.github.com/select2/
 		*/
 		$this->icons = array(
-			array( 'name' => '', 'value' => '' ),
-			array( 'name' => 'Adjust', 'value' => 'fa-adjust' ),
-			array( 'name' => 'Align Center', 'value' => 'fa-align-center' ),
-			array( 'name' => 'Align Justify', 'value' => 'fa-align-justify' ),
-			array( 'name' => 'Align Left', 'value' => 'fa-align-left' ),
-			array( 'name' => 'Align Right', 'value' => 'fa-align-right' ),
-			array( 'name' => 'Ambulance', 'value' => 'fa-ambulance' ),
-			array( 'name' => 'Anchor', 'value' => 'fa-anchor' ),
-			array( 'name' => 'Angle Down', 'value' => 'fa-angle-down' ),
-			array( 'name' => 'Angle Left', 'value' => 'fa-angle-left' ),
-			array( 'name' => 'Angle Right', 'value' => 'fa-angle-right' ),
-			array( 'name' => 'Angle Up', 'value' => 'fa-angle-up' ),
-			array( 'name' => 'Arrow Down', 'value' => 'fa-arrow-down' ),
-			array( 'name' => 'Arrow Left', 'value' => 'fa-arrow-left' ),
-			array( 'name' => 'Arrow Right', 'value' => 'fa-arrow-right' ),
-			array( 'name' => 'Arrow Up', 'value' => 'fa-arrow-up' ),
-			array( 'name' => 'Asterisk', 'value' => 'fa-asterisk' ),
-			array( 'name' => 'Backward', 'value' => 'fa-backward' ),
-			array( 'name' => 'Ban Circle', 'value' => 'fa-ban-circle' ),
-			array( 'name' => 'Bar Chart', 'value' => 'fa-bar-chart' ),
-			array( 'name' => 'Barcode', 'value' => 'fa-barcode' ),
-			array( 'name' => 'Beaker', 'value' => 'fa-beaker' ),
-			array( 'name' => 'Beer', 'value' => 'fa-beer' ),
-			array( 'name' => 'Bell', 'value' => 'fa-bell' ),
-			array( 'name' => 'Bell Alt', 'value' => 'fa-bell-alt' ),
-			array( 'name' => 'Bold', 'value' => 'fa-bold' ),
-			array( 'name' => 'Bolt', 'value' => 'fa-bolt' ),
-			array( 'name' => 'Book', 'value' => 'fa-book' ),
-			array( 'name' => 'Bookmark', 'value' => 'fa-bookmark' ),
-			array( 'name' => 'Bookmark Empty', 'value' => 'fa-bookmark-empty' ),
-			array( 'name' => 'Briefcase', 'value' => 'fa-briefcase' ),
-			array( 'name' => 'Building', 'value' => 'fa-building' ),
-			array( 'name' => 'Bullhorn', 'value' => 'fa-bullhorn' ),
-			array( 'name' => 'Bullseye', 'value' => 'fa-bullseye' ),
-			array( 'name' => 'Calendar', 'value' => 'fa-calendar' ),
-			array( 'name' => 'Calendar Empty', 'value' => 'fa-calendar-empty' ),
-			array( 'name' => 'Camera', 'value' => 'fa-camera' ),
-			array( 'name' => 'Camera Retro', 'value' => 'fa-camera-retro' ),
-			array( 'name' => 'Caret Down', 'value' => 'fa-caret-down' ),
-			array( 'name' => 'Caret Left', 'value' => 'fa-caret-left' ),
-			array( 'name' => 'Caret Right', 'value' => 'fa-caret-right' ),
-			array( 'name' => 'Caret Up', 'value' => 'fa-caret-up' ),
-			array( 'name' => 'Certificate', 'value' => 'fa-certificate' ),
-			array( 'name' => 'Check', 'value' => 'fa-check' ),
-			array( 'name' => 'Check Empty', 'value' => 'fa-check-empty' ),
-			array( 'name' => 'Check Minus', 'value' => 'fa-check-minus' ),
-			array( 'name' => 'Check Sign', 'value' => 'fa-check-sign' ),
-			array( 'name' => 'Chevron Down', 'value' => 'fa-chevron-down' ),
-			array( 'name' => 'Chevron Left', 'value' => 'fa-chevron-left' ),
-			array( 'name' => 'Chevron Right', 'value' => 'fa-chevron-right' ),
-			array( 'name' => 'Chevron Sign Down', 'value' => 'fa-chevron-sign-down' ),
-			array( 'name' => 'Chevron Sign Left', 'value' => 'fa-chevron-sign-left' ),
-			array( 'name' => 'Chevron Sign Right', 'value' => 'fa-chevron-sign-right' ),
-			array( 'name' => 'Chevron Sign Up', 'value' => 'fa-chevron-sign-up' ),
-			array( 'name' => 'Chevron Up', 'value' => 'fa-chevron-up' ),
-			array( 'name' => 'Circle', 'value' => 'fa-circle' ),
-			array( 'name' => 'Circle Arrow Down', 'value' => 'fa-circle-arrow-down' ),
-			array( 'name' => 'Circle Arrow Left', 'value' => 'fa-circle-arrow-left' ),
-			array( 'name' => 'Circle Arrow Right', 'value' => 'fa-circle-arrow-right' ),
-			array( 'name' => 'Circle Arrow Up', 'value' => 'fa-circle-arrow-up' ),
-			array( 'name' => 'Circle Blank', 'value' => 'fa-circle-blank' ),
-			array( 'name' => 'Cloud', 'value' => 'fa-cloud' ),
-			array( 'name' => 'Cloud Download', 'value' => 'fa-cloud-download' ),
-			array( 'name' => 'Cloud Upload', 'value' => 'fa-cloud-upload' ),
-			array( 'name' => 'Code', 'value' => 'fa-code' ),
-			array( 'name' => 'Code Fork', 'value' => 'fa-code-fork' ),
-			array( 'name' => 'Coffee', 'value' => 'fa-coffee' ),
-			array( 'name' => 'Cog', 'value' => 'fa-cog' ),
-			array( 'name' => 'Cogs', 'value' => 'fa-cogs' ),
-			array( 'name' => 'Collapse Alt', 'value' => 'fa-collapse-alt' ),
-			array( 'name' => 'Columns', 'value' => 'fa-columns' ),
-			array( 'name' => 'Comment', 'value' => 'fa-comment' ),
-			array( 'name' => 'Comment Alt', 'value' => 'fa-comment-alt' ),
-			array( 'name' => 'Comments', 'value' => 'fa-comments' ),
-			array( 'name' => 'Comments Alt', 'value' => 'fa-comments-alt' ),
-			array( 'name' => 'Copy', 'value' => 'fa-copy' ),
-			array( 'name' => 'Credit Card', 'value' => 'fa-credit-card' ),
-			array( 'name' => 'Crop', 'value' => 'fa-crop' ),
-			array( 'name' => 'CSS3', 'value' => 'fa-css3' ),
-			array( 'name' => 'Cut', 'value' => 'fa-cut' ),
-			array( 'name' => 'Dashboard', 'value' => 'fa-dashboard' ),
-			array( 'name' => 'Desktop', 'value' => 'fa-desktop' ),
-			array( 'name' => 'Double Angle Down', 'value' => 'fa-double-angle-down' ),
-			array( 'name' => 'Double Angle Left', 'value' => 'fa-double-angle-left' ),
-			array( 'name' => 'Double Angle Right', 'value' => 'fa-double-angle-right' ),
-			array( 'name' => 'Double Angle Up', 'value' => 'fa-double-angle-up' ),
-			array( 'name' => 'Download', 'value' => 'fa-download' ),
-			array( 'name' => 'Download Alt', 'value' => 'fa-download-alt' ),
-			array( 'name' => 'Edit', 'value' => 'fa-edit' ),
-			array( 'name' => 'Edit Sign', 'value' => 'fa-edit-sign' ),
-			array( 'name' => 'Eject', 'value' => 'fa-eject' ),
-			array( 'name' => 'Ellipsis Horizontal', 'value' => 'fa-ellipsis-horizontal' ),
-			array( 'name' => 'Ellipsis Vertical', 'value' => 'fa-ellipsis-vertical' ),
-			array( 'name' => 'Envelope', 'value' => 'fa-envelope' ),
-			array( 'name' => 'Envelope Alt', 'value' => 'fa-envelope-alt' ),
-			array( 'name' => 'Eraser', 'value' => 'fa-eraser' ),
-			array( 'name' => 'Exchange', 'value' => 'fa-exchange' ),
-			array( 'name' => 'Exclamation', 'value' => 'fa-exclamation' ),
-			array( 'name' => 'Exclamation Sign', 'value' => 'fa-exclamation-sign' ),
-			array( 'name' => 'Expand Alt', 'value' => 'fa-expand-alt' ),
-			array( 'name' => 'External Link', 'value' => 'fa-external-link' ),
-			array( 'name' => 'External Link Sign', 'value' => 'fa-external-link-sign' ),
-			array( 'name' => 'Eye Close', 'value' => 'fa-eye-close' ),
-			array( 'name' => 'Eye Open', 'value' => 'fa-eye-open' ),
-			array( 'name' => 'Facebook', 'value' => 'fa-facebook' ),
-			array( 'name' => 'Facebook Sign', 'value' => 'fa-facebook-sign' ),
-			array( 'name' => 'Facetime Video', 'value' => 'fa-facetime-video' ),
-			array( 'name' => 'Fast Backward', 'value' => 'fa-fast-backward' ),
-			array( 'name' => 'Fast Forward', 'value' => 'fa-fast-forward' ),
-			array( 'name' => 'Fighter Jet', 'value' => 'fa-fighter-jet' ),
-			array( 'name' => 'File', 'value' => 'fa-file' ),
-			array( 'name' => 'File Alt', 'value' => 'fa-file-alt' ),
-			array( 'name' => 'Film', 'value' => 'fa-film' ),
-			array( 'name' => 'Filter', 'value' => 'fa-filter' ),
-			array( 'name' => 'Fire', 'value' => 'fa-fire' ),
-			array( 'name' => 'Fire Extinguisher', 'value' => 'fa-fire-extinguisher' ),
-			array( 'name' => 'Flag', 'value' => 'fa-flag' ),
-			array( 'name' => 'Flag Alt', 'value' => 'fa-flag-alt' ),
-			array( 'name' => 'Flag Checkered', 'value' => 'fa-flag-checkered' ),
-			array( 'name' => 'Folder Close', 'value' => 'fa-folder-close' ),
-			array( 'name' => 'Folder Close Alt', 'value' => 'fa-folder-close-alt' ),
-			array( 'name' => 'Folder Open', 'value' => 'fa-folder-open' ),
-			array( 'name' => 'Folder Open Alt', 'value' => 'fa-folder-open-alt' ),
-			array( 'name' => 'Font', 'value' => 'fa-font' ),
-			array( 'name' => 'Food', 'value' => 'fa-food' ),
-			array( 'name' => 'Forward', 'value' => 'fa-forward' ),
-			array( 'name' => 'Frown', 'value' => 'fa-frown' ),
-			array( 'name' => 'Fullscreen', 'value' => 'fa-fullscreen' ),
-			array( 'name' => 'Gamepad', 'value' => 'fa-gamepad' ),
-			array( 'name' => 'Gift', 'value' => 'fa-gift' ),
-			array( 'name' => 'Github', 'value' => 'fa-github' ),
-			array( 'name' => 'Github Sign', 'value' => 'fa-github-sign' ),
-			array( 'name' => 'Glass', 'value' => 'fa-glass' ),
-			array( 'name' => 'Globe', 'value' => 'fa-globe' ),
-			array( 'name' => 'Google Plus', 'value' => 'fa-google-plus' ),
-			array( 'name' => 'Google Plus Sign', 'value' => 'fa-google-plus-sign' ),
-			array( 'name' => 'Group', 'value' => 'fa-group' ),
-			array( 'name' => 'H Sign', 'value' => 'fa-h-sign' ),
-			array( 'name' => 'Hand Down', 'value' => 'fa-hand-down' ),
-			array( 'name' => 'Hand Left', 'value' => 'fa-hand-left' ),
-			array( 'name' => 'Hand Right', 'value' => 'fa-hand-right' ),
-			array( 'name' => 'Hand Up', 'value' => 'fa-hand-up' ),
-			array( 'name' => 'Hdd', 'value' => 'fa-hdd' ),
-			array( 'name' => 'Headphones', 'value' => 'fa-headphones' ),
-			array( 'name' => 'Heart', 'value' => 'fa-heart' ),
-			array( 'name' => 'Heart Empty', 'value' => 'fa-heart-empty' ),
-			array( 'name' => 'Home', 'value' => 'fa-home' ),
-			array( 'name' => 'Hospital', 'value' => 'fa-hospital' ),
-			array( 'name' => 'Html5', 'value' => 'fa-html5' ),
-			array( 'name' => 'Inbox', 'value' => 'fa-inbox' ),
-			array( 'name' => 'Indent Left', 'value' => 'fa-indent-left' ),
-			array( 'name' => 'Indent Right', 'value' => 'fa-indent-right' ),
-			array( 'name' => 'Info', 'value' => 'fa-info' ),
-			array( 'name' => 'Info Sign', 'value' => 'fa-info-sign' ),
-			array( 'name' => 'Italic', 'value' => 'fa-italic' ),
-			array( 'name' => 'Key', 'value' => 'fa-key' ),
-			array( 'name' => 'Keyboard', 'value' => 'fa-keyboard' ),
-			array( 'name' => 'Laptop', 'value' => 'fa-laptop' ),
-			array( 'name' => 'Leaf', 'value' => 'fa-leaf' ),
-			array( 'name' => 'Legal', 'value' => 'fa-legal' ),
-			array( 'name' => 'Lemon', 'value' => 'fa-lemon' ),
-			array( 'name' => 'Level Down', 'value' => 'fa-level-down' ),
-			array( 'name' => 'Level Up', 'value' => 'fa-level-up' ),
-			array( 'name' => 'Lightbulb', 'value' => 'fa-lightbulb' ),
-			array( 'name' => 'Link', 'value' => 'fa-link' ),
-			array( 'name' => 'Linkedin', 'value' => 'fa-linkedin' ),
-			array( 'name' => 'Linkedin Sign', 'value' => 'fa-linkedin-sign' ),
-			array( 'name' => 'List', 'value' => 'fa-list' ),
-			array( 'name' => 'List Alt', 'value' => 'fa-list-alt' ),
-			array( 'name' => 'List Ol', 'value' => 'fa-list-ol' ),
-			array( 'name' => 'List Ul', 'value' => 'fa-list-ul' ),
-			array( 'name' => 'Location Arrow', 'value' => 'fa-location-arrow' ),
-			array( 'name' => 'Lock', 'value' => 'fa-lock' ),
-			array( 'name' => 'Magic', 'value' => 'fa-magic' ),
-			array( 'name' => 'Magnet', 'value' => 'fa-magnet' ),
-			array( 'name' => 'Mail Reply All', 'value' => 'fa-mail-reply-all' ),
-			array( 'name' => 'Map Marker', 'value' => 'fa-map-marker' ),
-			array( 'name' => 'Maxcdn', 'value' => 'fa-maxcdn' ),
-			array( 'name' => 'Medkit', 'value' => 'fa-medkit' ),
-			array( 'name' => 'Meh', 'value' => 'fa-meh' ),
-			array( 'name' => 'Microphone', 'value' => 'fa-microphone' ),
-			array( 'name' => 'Microphone Off', 'value' => 'fa-microphone-off' ),
-			array( 'name' => 'Minus', 'value' => 'fa-minus' ),
-			array( 'name' => 'Minus Sign', 'value' => 'fa-minus-sign' ),
-			array( 'name' => 'Minus Sign Alt', 'value' => 'fa-minus-sign-alt' ),
-			array( 'name' => 'Mobile Phone', 'value' => 'fa-mobile-phone' ),
-			array( 'name' => 'Money', 'value' => 'fa-money' ),
-			array( 'name' => 'Move', 'value' => 'fa-move' ),
-			array( 'name' => 'Music', 'value' => 'fa-music' ),
-			array( 'name' => 'Off', 'value' => 'fa-off' ),
-			array( 'name' => 'Ok', 'value' => 'fa-ok' ),
-			array( 'name' => 'Ok Circle', 'value' => 'fa-ok-circle' ),
-			array( 'name' => 'Ok Sign', 'value' => 'fa-ok-sign' ),
-			array( 'name' => 'Paper Clip', 'value' => 'fa-paper-clip' ),
-			array( 'name' => 'Paste', 'value' => 'fa-paste' ),
-			array( 'name' => 'Pause', 'value' => 'fa-pause' ),
-			array( 'name' => 'Pencil', 'value' => 'fa-pencil' ),
-			array( 'name' => 'Phone', 'value' => 'fa-phone' ),
-			array( 'name' => 'Phone Sign', 'value' => 'fa-phone-sign' ),
-			array( 'name' => 'Picture', 'value' => 'fa-picture' ),
-			array( 'name' => 'Pinterest', 'value' => 'fa-pinterest' ),
-			array( 'name' => 'Pinterest Sign', 'value' => 'fa-pinterest-sign' ),
-			array( 'name' => 'Plane', 'value' => 'fa-plane' ),
-			array( 'name' => 'Play', 'value' => 'fa-play' ),
-			array( 'name' => 'Play Circle', 'value' => 'fa-play-circle' ),
-			array( 'name' => 'Play Sign', 'value' => 'fa-play-sign' ),
-			array( 'name' => 'Plus', 'value' => 'fa-plus' ),
-			array( 'name' => 'Plus Sign', 'value' => 'fa-plus-sign' ),
-			array( 'name' => 'Plus Sign Alt', 'value' => 'fa-plus-sign-alt' ),
-			array( 'name' => 'Print', 'value' => 'fa-print' ),
-			array( 'name' => 'Pushpin', 'value' => 'fa-pushpin' ),
-			array( 'name' => 'Puzzle Piece', 'value' => 'fa-puzzle-piece' ),
-			array( 'name' => 'Qrcode', 'value' => 'fa-qrcode' ),
-			array( 'name' => 'Question', 'value' => 'fa-question' ),
-			array( 'name' => 'Question Sign', 'value' => 'fa-question-sign' ),
-			array( 'name' => 'Quote Left', 'value' => 'fa-quote-left' ),
-			array( 'name' => 'Quote Right', 'value' => 'fa-quote-right' ),
-			array( 'name' => 'Random', 'value' => 'fa-random' ),
-			array( 'name' => 'Refresh', 'value' => 'fa-refresh' ),
-			array( 'name' => 'Remove', 'value' => 'fa-remove' ),
-			array( 'name' => 'Remove Circle', 'value' => 'fa-remove-circle' ),
-			array( 'name' => 'Remove Sign', 'value' => 'fa-remove-sign' ),
-			array( 'name' => 'Reorder', 'value' => 'fa-reorder' ),
-			array( 'name' => 'Repeat', 'value' => 'fa-repeat' ),
-			array( 'name' => 'Reply', 'value' => 'fa-reply' ),
-			array( 'name' => 'Reply All', 'value' => 'fa-reply-all' ),
-			array( 'name' => 'Resize Full', 'value' => 'fa-resize-full' ),
-			array( 'name' => 'Resize Horizontal', 'value' => 'fa-resize-horizontal' ),
-			array( 'name' => 'Resize Small', 'value' => 'fa-resize-small' ),
-			array( 'name' => 'Resize Vertical', 'value' => 'fa-resize-vertical' ),
-			array( 'name' => 'Retweet', 'value' => 'fa-retweet' ),
-			array( 'name' => 'Road', 'value' => 'fa-road' ),
-			array( 'name' => 'Rocket', 'value' => 'fa-rocket' ),
-			array( 'name' => 'Rss', 'value' => 'fa-rss' ),
-			array( 'name' => 'Rss Sign', 'value' => 'fa-rss-sign' ),
-			array( 'name' => 'Save', 'value' => 'fa-save' ),
-			array( 'name' => 'Screenshot', 'value' => 'fa-screenshot' ),
-			array( 'name' => 'Search', 'value' => 'fa-search' ),
-			array( 'name' => 'Share', 'value' => 'fa-share' ),
-			array( 'name' => 'Share Alt', 'value' => 'fa-share-alt' ),
-			array( 'name' => 'Share Sign', 'value' => 'fa-share-sign' ),
-			array( 'name' => 'Shield', 'value' => 'fa-shield' ),
-			array( 'name' => 'Shopping Cart', 'value' => 'fa-shopping-cart' ),
-			array( 'name' => 'Sign Blank', 'value' => 'fa-sign-blank' ),
-			array( 'name' => 'Signal', 'value' => 'fa-signal' ),
-			array( 'name' => 'Sign In', 'value' => 'fa-signin' ),
-			array( 'name' => 'Sign Out', 'value' => 'fa-signout' ),
-			array( 'name' => 'Sitemap', 'value' => 'fa-sitemap' ),
-			array( 'name' => 'Smile', 'value' => 'fa-smile' ),
-			array( 'name' => 'Sort', 'value' => 'fa-sort' ),
-			array( 'name' => 'Sort Down', 'value' => 'fa-sort-down' ),
-			array( 'name' => 'Sort Up', 'value' => 'fa-sort-up' ),
-			array( 'name' => 'Spinner', 'value' => 'fa-spinner' ),
-			array( 'name' => 'Star', 'value' => 'fa-star' ),
-			array( 'name' => 'Star Empty', 'value' => 'fa-star-empty' ),
-			array( 'name' => 'Star Half', 'value' => 'fa-star-half' ),
-			array( 'name' => 'Star Half Empty', 'value' => 'fa-star-half-empty' ),
-			array( 'name' => 'Star Half Full', 'value' => 'fa-star-half-full' ),
-			array( 'name' => 'Step Backward', 'value' => 'fa-step-backward' ),
-			array( 'name' => 'Step Forward', 'value' => 'fa-step-forward' ),
-			array( 'name' => 'Stethoscope', 'value' => 'fa-stethoscope' ),
-			array( 'name' => 'Stop', 'value' => 'fa-stop' ),
-			array( 'name' => 'Strikethrough', 'value' => 'fa-strikethrough' ),
-			array( 'name' => 'Subscript', 'value' => 'fa-subscript' ),
-			array( 'name' => 'Suitcase', 'value' => 'fa-suitcase' ),
-			array( 'name' => 'Superscript', 'value' => 'fa-superscript' ),
-			array( 'name' => 'Table', 'value' => 'fa-table' ),
-			array( 'name' => 'Tablet', 'value' => 'fa-tablet' ),
-			array( 'name' => 'Tag', 'value' => 'fa-tag' ),
-			array( 'name' => 'Tags', 'value' => 'fa-tags' ),
-			array( 'name' => 'Tasks', 'value' => 'fa-tasks' ),
-			array( 'name' => 'Terminal', 'value' => 'fa-terminal' ),
-			array( 'name' => 'Text Height', 'value' => 'fa-text-height' ),
-			array( 'name' => 'Text Width', 'value' => 'fa-text-width' ),
-			array( 'name' => 'Th', 'value' => 'fa-th' ),
-			array( 'name' => 'Th Large', 'value' => 'fa-th-large' ),
-			array( 'name' => 'Th List', 'value' => 'fa-th-list' ),
-			array( 'name' => 'Thumbs Down', 'value' => 'fa-thumbs-down' ),
-			array( 'name' => 'Thumbs Up', 'value' => 'fa-thumbs-up' ),
-			array( 'name' => 'Ticket', 'value' => 'fa-ticket' ),
-			array( 'name' => 'Time', 'value' => 'fa-time' ),
-			array( 'name' => 'Tint', 'value' => 'fa-tint' ),
-			array( 'name' => 'Trash', 'value' => 'fa-trash' ),
-			array( 'name' => 'Trophy', 'value' => 'fa-trophy' ),
-			array( 'name' => 'Truck', 'value' => 'fa-truck' ),
-			array( 'name' => 'Twitter', 'value' => 'fa-twitter' ),
-			array( 'name' => 'Twitter Sign', 'value' => 'fa-twitter-sign' ),
-			array( 'name' => 'Umbrella', 'value' => 'fa-umbrella' ),
-			array( 'name' => 'Underline', 'value' => 'fa-underline' ),
-			array( 'name' => 'Undo', 'value' => 'fa-undo' ),
-			array( 'name' => 'Unlink', 'value' => 'fa-unlink' ),
-			array( 'name' => 'Unlock', 'value' => 'fa-unlock' ),
-			array( 'name' => 'Unlock Alt', 'value' => 'fa-unlock-alt' ),
-			array( 'name' => 'Upload', 'value' => 'fa-upload' ),
-			array( 'name' => 'Upload Alt', 'value' => 'fa-upload-alt' ),
-			array( 'name' => 'User', 'value' => 'fa-user' ),
-			array( 'name' => 'User Md', 'value' => 'fa-user-md' ),
-			array( 'name' => 'Volume Down', 'value' => 'fa-volume-down' ),
-			array( 'name' => 'Volume Off', 'value' => 'fa-volume-off' ),
-			array( 'name' => 'Volume Up', 'value' => 'fa-volume-up' ),
-			array( 'name' => 'Warning Sign', 'value' => 'fa-warning-sign' ),
-			array( 'name' => 'Wrench', 'value' => 'fa-wrench' ),
-			array( 'name' => 'Zoom In', 'value' => 'fa-zoom-in' ),
-			array( 'name' => 'Zoom Out', 'value' => 'fa-zoom-out' ),
+			array(
+				'name'  => '',
+				'value' => ''
+			),
+			array(
+				'name'  => 'Adjust',
+				'value' => 'fa-adjust',
+			),
+			array(
+				'name'  => 'Adn',
+				'value' => 'fa-adn',
+			),
+			array(
+				'name'  => 'Align Center',
+				'value' => 'fa-align-center',
+			),
+			array(
+				'name'  => 'Align Justify',
+				'value' => 'fa-align-justify',
+			),
+			array(
+				'name'  => 'Align Left',
+				'value' => 'fa-align-left',
+			),
+			array(
+				'name'  => 'Align Right',
+				'value' => 'fa-align-right',
+			),
+			array(
+				'name'  => 'Ambulance',
+				'value' => 'fa-ambulance',
+			),
+			array(
+				'name'  => 'Anchor',
+				'value' => 'fa-anchor',
+			),
+			array(
+				'name'  => 'Android',
+				'value' => 'fa-android',
+			),
+			array(
+				'name'  => 'Angle Double Down',
+				'value' => 'fa-angle-double-down',
+			),
+			array(
+				'name'  => 'Angle Double Left',
+				'value' => 'fa-angle-double-left',
+			),
+			array(
+				'name'  => 'Angle Double Right',
+				'value' => 'fa-angle-double-right',
+			),
+			array(
+				'name'  => 'Angle Double Up',
+				'value' => 'fa-angle-double-up',
+			),
+			array(
+				'name'  => 'Angle Down',
+				'value' => 'fa-angle-down',
+			),
+			array(
+				'name'  => 'Angle Left',
+				'value' => 'fa-angle-left',
+			),
+			array(
+				'name'  => 'Angle Right',
+				'value' => 'fa-angle-right',
+			),
+			array(
+				'name'  => 'Angle Up',
+				'value' => 'fa-angle-up',
+			),
+			array(
+				'name'  => 'Apple',
+				'value' => 'fa-apple',
+			),
+			array(
+				'name'  => 'Archive',
+				'value' => 'fa-archive',
+			),
+			array(
+				'name'  => 'Arrow Circle Down',
+				'value' => 'fa-arrow-circle-down',
+			),
+			array(
+				'name'  => 'Arrow Circle Left',
+				'value' => 'fa-arrow-circle-left',
+			),
+			array(
+				'name'  => 'Arrow Circle O Down',
+				'value' => 'fa-arrow-circle-o-down',
+			),
+			array(
+				'name'  => 'Arrow Circle O Left',
+				'value' => 'fa-arrow-circle-o-left',
+			),
+			array(
+				'name'  => 'Arrow Circle O Right',
+				'value' => 'fa-arrow-circle-o-right',
+			),
+			array(
+				'name'  => 'Arrow Circle O Up',
+				'value' => 'fa-arrow-circle-o-up',
+			),
+			array(
+				'name'  => 'Arrow Circle Right',
+				'value' => 'fa-arrow-circle-right',
+			),
+			array(
+				'name'  => 'Arrow Circle Up',
+				'value' => 'fa-arrow-circle-up',
+			),
+			array(
+				'name'  => 'Arrow Down',
+				'value' => 'fa-arrow-down',
+			),
+			array(
+				'name'  => 'Arrow Left',
+				'value' => 'fa-arrow-left',
+			),
+			array(
+				'name'  => 'Arrow Right',
+				'value' => 'fa-arrow-right',
+			),
+			array(
+				'name'  => 'Arrow Up',
+				'value' => 'fa-arrow-up',
+			),
+			array(
+				'name'  => 'Arrows',
+				'value' => 'fa-arrows',
+			),
+			array(
+				'name'  => 'Arrows Alt',
+				'value' => 'fa-arrows-alt',
+			),
+			array(
+				'name'  => 'Arrows H',
+				'value' => 'fa-arrows-h',
+			),
+			array(
+				'name'  => 'Arrows V',
+				'value' => 'fa-arrows-v',
+			),
+			array(
+				'name'  => 'Asterisk',
+				'value' => 'fa-asterisk',
+			),
+			array(
+				'name'  => 'Backward',
+				'value' => 'fa-backward',
+			),
+			array(
+				'name'  => 'Ban',
+				'value' => 'fa-ban',
+			),
+			array(
+				'name'  => 'Bar Chart O',
+				'value' => 'fa-bar-chart-o',
+			),
+			array(
+				'name'  => 'Barcode',
+				'value' => 'fa-barcode',
+			),
+			array(
+				'name'  => 'Bars',
+				'value' => 'fa-bars',
+			),
+			array(
+				'name'  => 'Beer',
+				'value' => 'fa-beer',
+			),
+			array(
+				'name'  => 'Bell',
+				'value' => 'fa-bell',
+			),
+			array(
+				'name'  => 'Bell O',
+				'value' => 'fa-bell-o',
+			),
+			array(
+				'name'  => 'Bitbucket',
+				'value' => 'fa-bitbucket',
+			),
+			array(
+				'name'  => 'Bitbucket Square',
+				'value' => 'fa-bitbucket-square',
+			),
+			array(
+				'name'  => 'Bold',
+				'value' => 'fa-bold',
+			),
+			array(
+				'name'  => 'Bolt',
+				'value' => 'fa-bolt',
+			),
+			array(
+				'name'  => 'Book',
+				'value' => 'fa-book',
+			),
+			array(
+				'name'  => 'Bookmark',
+				'value' => 'fa-bookmark',
+			),
+			array(
+				'name'  => 'Bookmark O',
+				'value' => 'fa-bookmark-o',
+			),
+			array(
+				'name'  => 'Briefcase',
+				'value' => 'fa-briefcase',
+			),
+			array(
+				'name'  => 'Btc',
+				'value' => 'fa-btc',
+			),
+			array(
+				'name'  => 'Bug',
+				'value' => 'fa-bug',
+			),
+			array(
+				'name'  => 'Building O',
+				'value' => 'fa-building-o',
+			),
+			array(
+				'name'  => 'Bullhorn',
+				'value' => 'fa-bullhorn',
+			),
+			array(
+				'name'  => 'Bullseye',
+				'value' => 'fa-bullseye',
+			),
+			array(
+				'name'  => 'Calendar',
+				'value' => 'fa-calendar',
+			),
+			array(
+				'name'  => 'Calendar O',
+				'value' => 'fa-calendar-o',
+			),
+			array(
+				'name'  => 'Camera',
+				'value' => 'fa-camera',
+			),
+			array(
+				'name'  => 'Camera Retro',
+				'value' => 'fa-camera-retro',
+			),
+			array(
+				'name'  => 'Caret Down',
+				'value' => 'fa-caret-down',
+			),
+			array(
+				'name'  => 'Caret Left',
+				'value' => 'fa-caret-left',
+			),
+			array(
+				'name'  => 'Caret Right',
+				'value' => 'fa-caret-right',
+			),
+			array(
+				'name'  => 'Caret Square O Down',
+				'value' => 'fa-caret-square-o-down',
+			),
+			array(
+				'name'  => 'Caret Square O Left',
+				'value' => 'fa-caret-square-o-left',
+			),
+			array(
+				'name'  => 'Caret Square O Right',
+				'value' => 'fa-caret-square-o-right',
+			),
+			array(
+				'name'  => 'Caret Square O Up',
+				'value' => 'fa-caret-square-o-up',
+			),
+			array(
+				'name'  => 'Caret Up',
+				'value' => 'fa-caret-up',
+			),
+			array(
+				'name'  => 'Certificate',
+				'value' => 'fa-certificate',
+			),
+			array(
+				'name'  => 'Chain Broken',
+				'value' => 'fa-chain-broken',
+			),
+			array(
+				'name'  => 'Check',
+				'value' => 'fa-check',
+			),
+			array(
+				'name'  => 'Check Circle',
+				'value' => 'fa-check-circle',
+			),
+			array(
+				'name'  => 'Check Circle O',
+				'value' => 'fa-check-circle-o',
+			),
+			array(
+				'name'  => 'Check Square',
+				'value' => 'fa-check-square',
+			),
+			array(
+				'name'  => 'Check Square O',
+				'value' => 'fa-check-square-o',
+			),
+			array(
+				'name'  => 'Chevron Circle Down',
+				'value' => 'fa-chevron-circle-down',
+			),
+			array(
+				'name'  => 'Chevron Circle Left',
+				'value' => 'fa-chevron-circle-left',
+			),
+			array(
+				'name'  => 'Chevron Circle Right',
+				'value' => 'fa-chevron-circle-right',
+			),
+			array(
+				'name'  => 'Chevron Circle Up',
+				'value' => 'fa-chevron-circle-up',
+			),
+			array(
+				'name'  => 'Chevron Down',
+				'value' => 'fa-chevron-down',
+			),
+			array(
+				'name'  => 'Chevron Left',
+				'value' => 'fa-chevron-left',
+			),
+			array(
+				'name'  => 'Chevron Right',
+				'value' => 'fa-chevron-right',
+			),
+			array(
+				'name'  => 'Chevron Up',
+				'value' => 'fa-chevron-up',
+			),
+			array(
+				'name'  => 'Circle',
+				'value' => 'fa-circle',
+			),
+			array(
+				'name'  => 'Circle O',
+				'value' => 'fa-circle-o',
+			),
+			array(
+				'name'  => 'Clipboard',
+				'value' => 'fa-clipboard',
+			),
+			array(
+				'name'  => 'Clock O',
+				'value' => 'fa-clock-o',
+			),
+			array(
+				'name'  => 'Cloud',
+				'value' => 'fa-cloud',
+			),
+			array(
+				'name'  => 'Cloud Download',
+				'value' => 'fa-cloud-download',
+			),
+			array(
+				'name'  => 'Cloud Upload',
+				'value' => 'fa-cloud-upload',
+			),
+			array(
+				'name'  => 'Code',
+				'value' => 'fa-code',
+			),
+			array(
+				'name'  => 'Code Fork',
+				'value' => 'fa-code-fork',
+			),
+			array(
+				'name'  => 'Coffee',
+				'value' => 'fa-coffee',
+			),
+			array(
+				'name'  => 'Cog',
+				'value' => 'fa-cog',
+			),
+			array(
+				'name'  => 'Cogs',
+				'value' => 'fa-cogs',
+			),
+			array(
+				'name'  => 'Columns',
+				'value' => 'fa-columns',
+			),
+			array(
+				'name'  => 'Comment',
+				'value' => 'fa-comment',
+			),
+			array(
+				'name'  => 'Comment O',
+				'value' => 'fa-comment-o',
+			),
+			array(
+				'name'  => 'Comments',
+				'value' => 'fa-comments',
+			),
+			array(
+				'name'  => 'Comments O',
+				'value' => 'fa-comments-o',
+			),
+			array(
+				'name'  => 'Compass',
+				'value' => 'fa-compass',
+			),
+			array(
+				'name'  => 'Compress',
+				'value' => 'fa-compress',
+			),
+			array(
+				'name'  => 'Credit Card',
+				'value' => 'fa-credit-card',
+			),
+			array(
+				'name'  => 'Crop',
+				'value' => 'fa-crop',
+			),
+			array(
+				'name'  => 'Crosshairs',
+				'value' => 'fa-crosshairs',
+			),
+			array(
+				'name'  => 'Css3',
+				'value' => 'fa-css3',
+			),
+			array(
+				'name'  => 'Cutlery',
+				'value' => 'fa-cutlery',
+			),
+			array(
+				'name'  => 'Desktop',
+				'value' => 'fa-desktop',
+			),
+			array(
+				'name'  => 'Dot Circle O',
+				'value' => 'fa-dot-circle-o',
+			),
+			array(
+				'name'  => 'Download',
+				'value' => 'fa-download',
+			),
+			array(
+				'name'  => 'Dribbble',
+				'value' => 'fa-dribbble',
+			),
+			array(
+				'name'  => 'Dropbox',
+				'value' => 'fa-dropbox',
+			),
+			array(
+				'name'  => 'Eject',
+				'value' => 'fa-eject',
+			),
+			array(
+				'name'  => 'Ellipsis H',
+				'value' => 'fa-ellipsis-h',
+			),
+			array(
+				'name'  => 'Ellipsis V',
+				'value' => 'fa-ellipsis-v',
+			),
+			array(
+				'name'  => 'Envelope',
+				'value' => 'fa-envelope',
+			),
+			array(
+				'name'  => 'Envelope O',
+				'value' => 'fa-envelope-o',
+			),
+			array(
+				'name'  => 'Eraser',
+				'value' => 'fa-eraser',
+			),
+			array(
+				'name'  => 'Eur',
+				'value' => 'fa-eur',
+			),
+			array(
+				'name'  => 'Exchange',
+				'value' => 'fa-exchange',
+			),
+			array(
+				'name'  => 'Exclamation',
+				'value' => 'fa-exclamation',
+			),
+			array(
+				'name'  => 'Exclamation Circle',
+				'value' => 'fa-exclamation-circle',
+			),
+			array(
+				'name'  => 'Exclamation Triangle',
+				'value' => 'fa-exclamation-triangle',
+			),
+			array(
+				'name'  => 'Expand',
+				'value' => 'fa-expand',
+			),
+			array(
+				'name'  => 'External Link',
+				'value' => 'fa-external-link',
+			),
+			array(
+				'name'  => 'External Link Square',
+				'value' => 'fa-external-link-square',
+			),
+			array(
+				'name'  => 'Eye',
+				'value' => 'fa-eye',
+			),
+			array(
+				'name'  => 'Eye Slash',
+				'value' => 'fa-eye-slash',
+			),
+			array(
+				'name'  => 'Female',
+				'value' => 'fa-female',
+			),
+			array(
+				'name'  => 'Ffacebook',
+				'value' => 'ffacebook',
+			),
+			array(
+				'name'  => 'Facebook Square',
+				'value' => 'fa-facebook-square',
+			),
+			array(
+				'name'  => 'Fast Backward',
+				'value' => 'fa-fast-backward',
+			),
+			array(
+				'name'  => 'Fast Forward',
+				'value' => 'fa-fast-forward',
+			),
+			array(
+				'name'  => 'Fighter Jet',
+				'value' => 'fa-fighter-jet',
+			),
+			array(
+				'name'  => 'File',
+				'value' => 'fa-file',
+			),
+			array(
+				'name'  => 'File O',
+				'value' => 'fa-file-o',
+			),
+			array(
+				'name'  => 'File Text',
+				'value' => 'fa-file-text',
+			),
+			array(
+				'name'  => 'File Text O',
+				'value' => 'fa-file-text-o',
+			),
+			array(
+				'name'  => 'Files O',
+				'value' => 'fa-files-o',
+			),
+			array(
+				'name'  => 'Film',
+				'value' => 'fa-film',
+			),
+			array(
+				'name'  => 'Filter',
+				'value' => 'fa-filter',
+			),
+			array(
+				'name'  => 'Fire',
+				'value' => 'fa-fire',
+			),
+			array(
+				'name'  => 'Fire Extinguisher',
+				'value' => 'fa-fire-extinguisher',
+			),
+			array(
+				'name'  => 'Flag',
+				'value' => 'fa-flag',
+			),
+			array(
+				'name'  => 'Flag Checkered',
+				'value' => 'fa-flag-checkered',
+			),
+			array(
+				'name'  => 'Flag O',
+				'value' => 'fa-flag-o',
+			),
+			array(
+				'name'  => 'Flask',
+				'value' => 'fa-flask',
+			),
+			array(
+				'name'  => 'Flickr',
+				'value' => 'fa-flickr',
+			),
+			array(
+				'name'  => 'Floppy O',
+				'value' => 'fa-floppy-o',
+			),
+			array(
+				'name'  => 'Folder',
+				'value' => 'fa-folder',
+			),
+			array(
+				'name'  => 'Folder O',
+				'value' => 'fa-folder-o',
+			),
+			array(
+				'name'  => 'Folder Open',
+				'value' => 'fa-folder-open',
+			),
+			array(
+				'name'  => 'Folder Open O',
+				'value' => 'fa-folder-open-o',
+			),
+			array(
+				'name'  => 'Font',
+				'value' => 'fa-font',
+			),
+			array(
+				'name'  => 'Forward',
+				'value' => 'fa-forward',
+			),
+			array(
+				'name'  => 'Foursquare',
+				'value' => 'fa-foursquare',
+			),
+			array(
+				'name'  => 'Frown O',
+				'value' => 'fa-frown-o',
+			),
+			array(
+				'name'  => 'Gamepad',
+				'value' => 'fa-gamepad',
+			),
+			array(
+				'name'  => 'Gavel',
+				'value' => 'fa-gavel',
+			),
+			array(
+				'name'  => 'Gbp',
+				'value' => 'fa-gbp',
+			),
+			array(
+				'name'  => 'Gift',
+				'value' => 'fa-gift',
+			),
+			array(
+				'name'  => 'Github',
+				'value' => 'fa-github',
+			),
+			array(
+				'name'  => 'Github Alt',
+				'value' => 'fa-github-alt',
+			),
+			array(
+				'name'  => 'Github Square',
+				'value' => 'fa-github-square',
+			),
+			array(
+				'name'  => 'Gittip',
+				'value' => 'fa-gittip',
+			),
+			array(
+				'name'  => 'Glass',
+				'value' => 'fa-glass',
+			),
+			array(
+				'name'  => 'Globe',
+				'value' => 'fa-globe',
+			),
+			array(
+				'name'  => 'Google Plus',
+				'value' => 'fa-google-plus',
+			),
+			array(
+				'name'  => 'Google Plus Square',
+				'value' => 'fa-google-plus-square',
+			),
+			array(
+				'name'  => 'H Square',
+				'value' => 'fa-h-square',
+			),
+			array(
+				'name'  => 'Hand O Down',
+				'value' => 'fa-hand-o-down',
+			),
+			array(
+				'name'  => 'Hand O Left',
+				'value' => 'fa-hand-o-left',
+			),
+			array(
+				'name'  => 'Hand O Right',
+				'value' => 'fa-hand-o-right',
+			),
+			array(
+				'name'  => 'Hand O Up',
+				'value' => 'fa-hand-o-up',
+			),
+			array(
+				'name'  => 'Hdd O',
+				'value' => 'fa-hdd-o',
+			),
+			array(
+				'name'  => 'Headphones',
+				'value' => 'fa-headphones',
+			),
+			array(
+				'name'  => 'Heart',
+				'value' => 'fa-heart',
+			),
+			array(
+				'name'  => 'Heart O',
+				'value' => 'fa-heart-o',
+			),
+			array(
+				'name'  => 'Home',
+				'value' => 'fa-home',
+			),
+			array(
+				'name'  => 'Hospital O',
+				'value' => 'fa-hospital-o',
+			),
+			array(
+				'name'  => 'Html5',
+				'value' => 'fa-html5',
+			),
+			array(
+				'name'  => 'Inbox',
+				'value' => 'fa-inbox',
+			),
+			array(
+				'name'  => 'Indent',
+				'value' => 'fa-indent',
+			),
+			array(
+				'name'  => 'Info',
+				'value' => 'fa-info',
+			),
+			array(
+				'name'  => 'Info Circle',
+				'value' => 'fa-info-circle',
+			),
+			array(
+				'name'  => 'Inr',
+				'value' => 'fa-inr',
+			),
+			array(
+				'name'  => 'Instagram',
+				'value' => 'fa-instagram',
+			),
+			array(
+				'name'  => 'Italic',
+				'value' => 'fa-italic',
+			),
+			array(
+				'name'  => 'Jpy',
+				'value' => 'fa-jpy',
+			),
+			array(
+				'name'  => 'Key',
+				'value' => 'fa-key',
+			),
+			array(
+				'name'  => 'Keyboard O',
+				'value' => 'fa-keyboard-o',
+			),
+			array(
+				'name'  => 'Krw',
+				'value' => 'fa-krw',
+			),
+			array(
+				'name'  => 'Laptop',
+				'value' => 'fa-laptop',
+			),
+			array(
+				'name'  => 'Leaf',
+				'value' => 'fa-leaf',
+			),
+			array(
+				'name'  => 'Lemon O',
+				'value' => 'fa-lemon-o',
+			),
+			array(
+				'name'  => 'Level Down',
+				'value' => 'fa-level-down',
+			),
+			array(
+				'name'  => 'Level Up',
+				'value' => 'fa-level-up',
+			),
+			array(
+				'name'  => 'Lightbulb O',
+				'value' => 'fa-lightbulb-o',
+			),
+			array(
+				'name'  => 'Link',
+				'value' => 'fa-link',
+			),
+			array(
+				'name'  => 'Linkedin',
+				'value' => 'fa-linkedin',
+			),
+			array(
+				'name'  => 'Linkedin Square',
+				'value' => 'fa-linkedin-square',
+			),
+			array(
+				'name'  => 'Linux',
+				'value' => 'fa-linux',
+			),
+			array(
+				'name'  => 'List',
+				'value' => 'fa-list',
+			),
+			array(
+				'name'  => 'List Alt',
+				'value' => 'fa-list-alt',
+			),
+			array(
+				'name'  => 'List Ol',
+				'value' => 'fa-list-ol',
+			),
+			array(
+				'name'  => 'List Ul',
+				'value' => 'fa-list-ul',
+			),
+			array(
+				'name'  => 'Location Arrow',
+				'value' => 'fa-location-arrow',
+			),
+			array(
+				'name'  => 'Lock',
+				'value' => 'fa-lock',
+			),
+			array(
+				'name'  => 'Long Arrow Down',
+				'value' => 'fa-long-arrow-down',
+			),
+			array(
+				'name'  => 'Long Arrow Left',
+				'value' => 'fa-long-arrow-left',
+			),
+			array(
+				'name'  => 'Long Arrow Right',
+				'value' => 'fa-long-arrow-right',
+			),
+			array(
+				'name'  => 'Long Arrow Up',
+				'value' => 'fa-long-arrow-up',
+			),
+			array(
+				'name'  => 'Magic',
+				'value' => 'fa-magic',
+			),
+			array(
+				'name'  => 'Magnet',
+				'value' => 'fa-magnet',
+			),
+			array(
+				'name'  => 'Mail Reply All',
+				'value' => 'fa-mail-reply-all',
+			),
+			array(
+				'name'  => 'Male',
+				'value' => 'fa-male',
+			),
+			array(
+				'name'  => 'Map Marker',
+				'value' => 'fa-map-marker',
+			),
+			array(
+				'name'  => 'Maxcdn',
+				'value' => 'fa-maxcdn',
+			),
+			array(
+				'name'  => 'Medk',
+				'value' => 'fa-medk',
+			),
+			array(
+				'name'  => 'Meh O',
+				'value' => 'fa-meh-o',
+			),
+			array(
+				'name'  => 'Microphone',
+				'value' => 'fa-microphone',
+			),
+			array(
+				'name'  => 'Microphone Slash',
+				'value' => 'fa-microphone-slash',
+			),
+			array(
+				'name'  => 'Minus',
+				'value' => 'fa-minus',
+			),
+			array(
+				'name'  => 'Minus Circle',
+				'value' => 'fa-minus-circle',
+			),
+			array(
+				'name'  => 'Minus Square',
+				'value' => 'fa-minus-square',
+			),
+			array(
+				'name'  => 'Minus Square O',
+				'value' => 'fa-minus-square-o',
+			),
+			array(
+				'name'  => 'Mobile',
+				'value' => 'fa-mobile',
+			),
+			array(
+				'name'  => 'Money',
+				'value' => 'fa-money',
+			),
+			array(
+				'name'  => 'Moon O',
+				'value' => 'fa-moon-o',
+			),
+			array(
+				'name'  => 'Music',
+				'value' => 'fa-music',
+			),
+			array(
+				'name'  => 'Outdent',
+				'value' => 'fa-outdent',
+			),
+			array(
+				'name'  => 'Pagelines',
+				'value' => 'fa-pagelines',
+			),
+			array(
+				'name'  => 'Paperclip',
+				'value' => 'fa-paperclip',
+			),
+			array(
+				'name'  => 'Pause',
+				'value' => 'fa-pause',
+			),
+			array(
+				'name'  => 'Pencil',
+				'value' => 'fa-pencil',
+			),
+			array(
+				'name'  => 'Pencil Square',
+				'value' => 'fa-pencil-square',
+			),
+			array(
+				'name'  => 'Pencil Square O',
+				'value' => 'fa-pencil-square-o',
+			),
+			array(
+				'name'  => 'Phone',
+				'value' => 'fa-phone',
+			),
+			array(
+				'name'  => 'Phone Square',
+				'value' => 'fa-phone-square',
+			),
+			array(
+				'name'  => 'Picture O',
+				'value' => 'fa-picture-o',
+			),
+			array(
+				'name'  => 'Pinterest',
+				'value' => 'fa-pinterest',
+			),
+			array(
+				'name'  => 'Pinterest Square',
+				'value' => 'fa-pinterest-square',
+			),
+			array(
+				'name'  => 'Plane',
+				'value' => 'fa-plane',
+			),
+			array(
+				'name'  => 'Play',
+				'value' => 'fa-play',
+			),
+			array(
+				'name'  => 'Play Circle',
+				'value' => 'fa-play-circle',
+			),
+			array(
+				'name'  => 'Play Circle O',
+				'value' => 'fa-play-circle-o',
+			),
+			array(
+				'name'  => 'Plus',
+				'value' => 'fa-plus',
+			),
+			array(
+				'name'  => 'Plus Circle',
+				'value' => 'fa-plus-circle',
+			),
+			array(
+				'name'  => 'Plus Square',
+				'value' => 'fa-plus-square',
+			),
+			array(
+				'name'  => 'Power Off',
+				'value' => 'fa-power-off',
+			),
+			array(
+				'name'  => 'Print',
+				'value' => 'fa-print',
+			),
+			array(
+				'name'  => 'Puzzle Piece',
+				'value' => 'fa-puzzle-piece',
+			),
+			array(
+				'name'  => 'Qrcode',
+				'value' => 'fa-qrcode',
+			),
+			array(
+				'name'  => 'Question',
+				'value' => 'fa-question',
+			),
+			array(
+				'name'  => 'Question Circle',
+				'value' => 'fa-question-circle',
+			),
+			array(
+				'name'  => 'Quote Left',
+				'value' => 'fa-quote-left',
+			),
+			array(
+				'name'  => 'Quote Right',
+				'value' => 'fa-quote-right',
+			),
+			array(
+				'name'  => 'Random',
+				'value' => 'fa-random',
+			),
+			array(
+				'name'  => 'Refresh',
+				'value' => 'fa-refresh',
+			),
+			array(
+				'name'  => 'Renren',
+				'value' => 'fa-renren',
+			),
+			array(
+				'name'  => 'Repeat',
+				'value' => 'fa-repeat',
+			),
+			array(
+				'name'  => 'Reply',
+				'value' => 'fa-reply',
+			),
+			array(
+				'name'  => 'Reply All',
+				'value' => 'fa-reply-all',
+			),
+			array(
+				'name'  => 'Retweet',
+				'value' => 'fa-retweet',
+			),
+			array(
+				'name'  => 'Road',
+				'value' => 'fa-road',
+			),
+			array(
+				'name'  => 'Rocket',
+				'value' => 'fa-rocket',
+			),
+			array(
+				'name'  => 'Rss',
+				'value' => 'fa-rss',
+			),
+			array(
+				'name'  => 'Rss Square',
+				'value' => 'fa-rss-square',
+			),
+			array(
+				'name'  => 'Rub',
+				'value' => 'fa-rub',
+			),
+			array(
+				'name'  => 'Scissors',
+				'value' => 'fa-scissors',
+			),
+			array(
+				'name'  => 'Search',
+				'value' => 'fa-search',
+			),
+			array(
+				'name'  => 'Search Minus',
+				'value' => 'fa-search-minus',
+			),
+			array(
+				'name'  => 'Search Plus',
+				'value' => 'fa-search-plus',
+			),
+			array(
+				'name'  => 'Share',
+				'value' => 'fa-share',
+			),
+			array(
+				'name'  => 'Share Square',
+				'value' => 'fa-share-square',
+			),
+			array(
+				'name'  => 'Share Square O',
+				'value' => 'fa-share-square-o',
+			),
+			array(
+				'name'  => 'Shield',
+				'value' => 'fa-shield',
+			),
+			array(
+				'name'  => 'Shopping Cart',
+				'value' => 'fa-shopping-cart',
+			),
+			array(
+				'name'  => 'Sign In',
+				'value' => 'fa-sign-in',
+			),
+			array(
+				'name'  => 'Sign Out',
+				'value' => 'fa-sign-out',
+			),
+			array(
+				'name'  => 'Signal',
+				'value' => 'fa-signal',
+			),
+			array(
+				'name'  => 'Sitemap',
+				'value' => 'fa-sitemap',
+			),
+			array(
+				'name'  => 'Skype',
+				'value' => 'fa-skype',
+			),
+			array(
+				'name'  => 'Smile O',
+				'value' => 'fa-smile-o',
+			),
+			array(
+				'name'  => 'Sort',
+				'value' => 'fa-sort',
+			),
+			array(
+				'name'  => 'Sort Alpha Asc',
+				'value' => 'fa-sort-alpha-asc',
+			),
+			array(
+				'name'  => 'Sort Alpha Desc',
+				'value' => 'fa-sort-alpha-desc',
+			),
+			array(
+				'name'  => 'Sort Amount Asc',
+				'value' => 'fa-sort-amount-asc',
+			),
+			array(
+				'name'  => 'Sort Amount Desc',
+				'value' => 'fa-sort-amount-desc',
+			),
+			array(
+				'name'  => 'Sort Asc',
+				'value' => 'fa-sort-asc',
+			),
+			array(
+				'name'  => 'Sort Desc',
+				'value' => 'fa-sort-desc',
+			),
+			array(
+				'name'  => 'Sort Numeric Asc',
+				'value' => 'fa-sort-numeric-asc',
+			),
+			array(
+				'name'  => 'Sort Numeric Desc',
+				'value' => 'fa-sort-numeric-desc',
+			),
+			array(
+				'name'  => 'Spinner',
+				'value' => 'fa-spinner',
+			),
+			array(
+				'name'  => 'Square',
+				'value' => 'fa-square',
+			),
+			array(
+				'name'  => 'Square O',
+				'value' => 'fa-square-o',
+			),
+			array(
+				'name'  => 'Stack Exchange',
+				'value' => 'fa-stack-exchange',
+			),
+			array(
+				'name'  => 'Stack Overflow',
+				'value' => 'fa-stack-overflow',
+			),
+			array(
+				'name'  => 'Star',
+				'value' => 'fa-star',
+			),
+			array(
+				'name'  => 'Star Half',
+				'value' => 'fa-star-half',
+			),
+			array(
+				'name'  => 'Star Half O',
+				'value' => 'fa-star-half-o',
+			),
+			array(
+				'name'  => 'Star O',
+				'value' => 'fa-star-o',
+			),
+			array(
+				'name'  => 'Step Backward',
+				'value' => 'fa-step-backward',
+			),
+			array(
+				'name'  => 'Step Forward',
+				'value' => 'fa-step-forward',
+			),
+			array(
+				'name'  => 'Stethoscope',
+				'value' => 'fa-stethoscope',
+			),
+			array(
+				'name'  => 'Stop',
+				'value' => 'fa-stop',
+			),
+			array(
+				'name'  => 'Strikethrough',
+				'value' => 'fa-strikethrough',
+			),
+			array(
+				'name'  => 'Subscript',
+				'value' => 'fa-subscript',
+			),
+			array(
+				'name'  => 'Suitcase',
+				'value' => 'fa-suitcase',
+			),
+			array(
+				'name'  => 'Sun O',
+				'value' => 'fa-sun-o',
+			),
+			array(
+				'name'  => 'Superscript',
+				'value' => 'fa-superscript',
+			),
+			array(
+				'name'  => 'Table',
+				'value' => 'fa-table',
+			),
+			array(
+				'name'  => 'Tablet',
+				'value' => 'fa-tablet',
+			),
+			array(
+				'name'  => 'Tachometer',
+				'value' => 'fa-tachometer',
+			),
+			array(
+				'name'  => 'Tag',
+				'value' => 'fa-tag',
+			),
+			array(
+				'name'  => 'Tags',
+				'value' => 'fa-tags',
+			),
+			array(
+				'name'  => 'Tasks',
+				'value' => 'fa-tasks',
+			),
+			array(
+				'name'  => 'Terminal',
+				'value' => 'fa-terminal',
+			),
+			array(
+				'name'  => 'Text Height',
+				'value' => 'fa-text-height',
+			),
+			array(
+				'name'  => 'Text Width',
+				'value' => 'fa-text-width',
+			),
+			array(
+				'name'  => 'Th',
+				'value' => 'fa-th',
+			),
+			array(
+				'name'  => 'Th Large',
+				'value' => 'fa-th-large',
+			),
+			array(
+				'name'  => 'Th List',
+				'value' => 'fa-th-list',
+			),
+			array(
+				'name'  => 'Thumb Tack',
+				'value' => 'fa-thumb-tack',
+			),
+			array(
+				'name'  => 'Thumbs Down',
+				'value' => 'fa-thumbs-down',
+			),
+			array(
+				'name'  => 'Thumbs O Down',
+				'value' => 'fa-thumbs-o-down',
+			),
+			array(
+				'name'  => 'Thumbs O Up',
+				'value' => 'fa-thumbs-o-up',
+			),
+			array(
+				'name'  => 'Thumbs Up',
+				'value' => 'fa-thumbs-up',
+			),
+			array(
+				'name'  => 'Ticket',
+				'value' => 'fa-ticket',
+			),
+			array(
+				'name'  => 'Times',
+				'value' => 'fa-times',
+			),
+			array(
+				'name'  => 'Times Circle',
+				'value' => 'fa-times-circle',
+			),
+			array(
+				'name'  => 'Times Circle O',
+				'value' => 'fa-times-circle-o',
+			),
+			array(
+				'name'  => 'Tint',
+				'value' => 'fa-tint',
+			),
+			array(
+				'name'  => 'Trash O',
+				'value' => 'fa-trash-o',
+			),
+			array(
+				'name'  => 'Trello',
+				'value' => 'fa-trello',
+			),
+			array(
+				'name'  => 'Trophy',
+				'value' => 'fa-trophy',
+			),
+			array(
+				'name'  => 'Truck',
+				'value' => 'fa-truck',
+			),
+			array(
+				'name'  => 'Try',
+				'value' => 'fa-try',
+			),
+			array(
+				'name'  => 'Tumblr',
+				'value' => 'fa-tumblr',
+			),
+			array(
+				'name'  => 'Tumblr Square',
+				'value' => 'fa-tumblr-square',
+			),
+			array(
+				'name'  => 'Twitter',
+				'value' => 'fa-twitter',
+			),
+			array(
+				'name'  => 'Twitter Square',
+				'value' => 'fa-twitter-square',
+			),
+			array(
+				'name'  => 'Umbrella',
+				'value' => 'fa-umbrella',
+			),
+			array(
+				'name'  => 'Underline',
+				'value' => 'fa-underline',
+			),
+			array(
+				'name'  => 'Undo',
+				'value' => 'fa-undo',
+			),
+			array(
+				'name'  => 'Unlock',
+				'value' => 'fa-unlock',
+			),
+			array(
+				'name'  => 'Unlock Alt',
+				'value' => 'fa-unlock-alt',
+			),
+			array(
+				'name'  => 'Upload',
+				'value' => 'fa-upload',
+			),
+			array(
+				'name'  => 'Usd',
+				'value' => 'fa-usd',
+			),
+			array(
+				'name'  => 'User',
+				'value' => 'fa-user',
+			),
+			array(
+				'name'  => 'User Md',
+				'value' => 'fa-user-md',
+			),
+			array(
+				'name'  => 'Users',
+				'value' => 'fa-users',
+			),
+			array(
+				'name'  => 'Video Camera',
+				'value' => 'fa-video-camera',
+			),
+			array(
+				'name'  => 'Vimeo Square',
+				'value' => 'fa-vimeo-square',
+			),
+			array(
+				'name'  => 'Vk',
+				'value' => 'fa-vk',
+			),
+			array(
+				'name'  => 'Volume Down',
+				'value' => 'fa-volume-down',
+			),
+			array(
+				'name'  => 'Volume Off',
+				'value' => 'fa-volume-off',
+			),
+			array(
+				'name'  => 'Volume Up',
+				'value' => 'fa-volume-up',
+			),
+			array(
+				'name'  => 'Weibo',
+				'value' => 'fa-weibo',
+			),
+			array(
+				'name'  => 'Wheelchair',
+				'value' => 'fa-wheelchair',
+			),
+			array(
+				'name'  => 'Windows',
+				'value' => 'fa-windows',
+			),
+			array(
+				'name'  => 'Wrench',
+				'value' => 'fa-wrench',
+			),
+			array(
+				'name'  => 'Xing',
+				'value' => 'fa-xing',
+			),
+			array(
+				'name'  => 'Xing Square',
+				'value' => 'fa-xing-square',
+			),
+			array(
+				'name'  => 'YouTube',
+				'value' => 'fa-youtube',
+			),
+			array(
+				'name'  => 'YouTube Play',
+				'value' => 'fa-youtube-play',
+			),
+			array(
+				'name'  => 'YouTube Square',
+				'value' => 'fa-youtube-square',
+			),
 		);
-
 		$widget_ops = array(
 			'classname'   => 'awesome-feature',
 			'description' => __( 'Displays a font awesome icon linked to a featured page of your choosing.', 'afcw' ),
