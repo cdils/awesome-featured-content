@@ -82,13 +82,9 @@ class Awesome_Featured_Widget extends WP_Widget {
 		$before_stack    = '';
 		$after_stack     = '';
 
-		// Add a link to content if we have content to link to.
-		if (  ! empty( $instance['content_id'] ) ) {
-			$before_title .= '<a href="'. get_permalink() .'">';
-			$after_title = '</a>' . $after_title;
-			$before_stack = '<a href="' . get_permalink( $instance['content_id'] ) . '">';
-			$after_stack  = '</a>';
-		}
+		// Add a link to the featured page to the widget title.
+		$before_title .= '<a href="'. get_permalink() .'">';
+		$after_title = '</a>' . $after_title;
 
 		// Check for the title before the icon.
 		if ( $title_placement == 'before_icon' && ! empty( $awesome_title ) ) {
@@ -98,6 +94,12 @@ class Awesome_Featured_Widget extends WP_Widget {
 		// Check for the title after the icon.
 		if ( $title_placement == 'after_icon' && ! empty( $awesome_title ) ) {
 			$after_icon = $before_title . $awesome_title . $after_title;
+		}
+
+		// Add a link to content if we have content to link to.
+		if (  ! empty( $instance['content_id'] ) ) {
+			$before_stack = '<a href="' . get_permalink( $instance['content_id'] ) . '">';
+			$after_stack  = '</a>';
 		}
 
 		// Output the widget's HTML.
