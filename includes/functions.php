@@ -903,8 +903,8 @@ function afcw_get_icons() {
 			'value' => 'fa-maxcdn',
 		),
 		array(
-			'name'  => 'Medk',
-			'value' => 'fa-medk',
+			'name'  => 'Medkit',
+			'value' => 'fa-medkit',
 		),
 		array(
 			'name'  => 'Meh O',
