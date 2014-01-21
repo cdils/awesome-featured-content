@@ -1502,3 +1502,33 @@ function afcw_get_icons() {
 
 	return apply_filters( 'afcw_font_icons', $font_icons );
 }
+
+/**
+ * Retrieve or display list of any type of posts as a dropdown (select list).
+ *
+ * @since 2.1.0
+ *
+ * @param array|string $args Optional. Override default arguments.
+ * @return string HTML content, if not displaying.
+ */
+function afcw_dropdown_posts( $select_id, $selected = 0, $args = '' ) {
+
+	$defaults = array(
+		'post_status'      => 'publish',
+		'post_type'        => 'any',
+		'public'           => true,
+		'suppress_filters' => false,
+		'posts_per_page'   => -1
+	);
+
+	$args = wp_parse_args( $args, $defaults );
+
+	$posts = get_posts( $args );
+
+	echo '<select class="widefat awesome-select" name="'. $select_id .'" id="'.$select_id.'">';
+	 	echo '<option value = "" >' . __( 'None', 'afcw' ) . '</option>';
+		foreach ( $posts as $post ) {
+			echo '<option value="', $post->ID, '"', $selected == $post->ID ? ' selected="selected"' : '', '>', $post->post_title, '</option>';
+		}
+	echo '</select>';
+}

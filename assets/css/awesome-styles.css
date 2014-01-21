@@ -3,23 +3,11 @@ a .fa:before {
 	text-decoration: none;
 }
 
-.ico-bg {
+.awesome-feature .fa-stack {
 	display: block;
-	text-align: center;
+	margin: 0 auto;
 }
 
-.awesome-feature .ico-bg a {
-	display: inline-block;
-	overflow: hidden;
-	-webkit-transition: background .3s ease-in-out;
-	-moz-transition:    background .3s ease-in-out;
-	-ms-transition:     background .3s ease-in-out;
-	-o-transition:      background .3s ease-in-out;
-	transition:         background .3s ease-in-out;
-}
-
-.awesome-feature .ico-bg .fa {
-	cursor: pointer;
-	position: relative;
-	text-align: center;
+.awesome-feature .widget-title {
+	background: transparent;
 }

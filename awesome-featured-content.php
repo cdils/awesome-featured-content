@@ -3,9 +3,9 @@
  * Plugin Name: Awesome Featured Content
  * Plugin URI: http://wpbacon.com/awesome-featured-content/
  * Description: Display a Font Awesome icon with a link to a featured piece of content.
- * Author: FAT Media
- * Author URI: http://youneedfat.com/
- * Version: 1.0.1
+ * Author: WP Bacon
+ * Author URI: http://wpbacon.com/
+ * Version: 1.1.0
  * Text Domain: afcw
  * Domain Path: languages
  *
@@ -22,10 +22,10 @@
  * You should have received a copy of the GNU General Public License
  * along with Awesome Featured Content. If not, see <http://www.gnu.org/licenses/>.
  *
- * @package AFCW
+ * @package  AFCW
  * @category Core
- * @author FAT Media, LLC
- * @version 1.0.0
+ * @author   FAT Media, LLC
+ * @version  1.0.0
  */
 
 // Exit if accessed directly
@@ -105,7 +105,7 @@ class Awesome_Featured_Content {
 
 		// Plugin version
 		if ( ! defined( 'AFCW_VERSION' ) ) {
-			define( 'AFCW_VERSION', '1.0.2' );
+			define( 'AFCW_VERSION', '1.1.0' );
 		}
 
 		// Plugin Folder URL
@@ -133,18 +133,14 @@ class Awesome_Featured_Content {
 	 */
 	private function includes() {
 
-		global $afcw_options;
-
-		require_once AFCW_PLUGIN_DIR . 'includes/admin/register-settings.php';
-		$afcw_options = afcw_get_settings();
-
 		/** Require Plugin Files*/
 		require_once AFCW_PLUGIN_DIR . 'includes/install.php';
+		require_once AFCW_PLUGIN_DIR . 'includes/functions.php';
 		require_once AFCW_PLUGIN_DIR . 'includes/scripts.php';
 		require_once AFCW_PLUGIN_DIR . 'includes/widgets.php';
+		require_once AFCW_PLUGIN_DIR . '/includes/awesome-featured-content-widget.php';
 		if( is_admin() ) {
 			require_once AFCW_PLUGIN_DIR . 'includes/admin/scripts.php';
-			require_once AFCW_PLUGIN_DIR . 'includes/admin/display-settings.php';
 		}
 
 	}

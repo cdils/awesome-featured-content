@@ -12,9 +12,6 @@
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-/** Include widget class files */
-require_once( AFCW_PLUGIN_DIR . '/includes/awesome-featured-content-widget.php' );
-
 add_action("widgets_init", "afcw_load_widgets");
 
 /**
