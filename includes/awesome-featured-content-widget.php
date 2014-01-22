@@ -38,6 +38,7 @@ class Awesome_Featured_Widget extends WP_Widget {
 			'title_placement' => 'before_icon',
 			'content_id'      => '',
 			'awesome_icon'    => '',
+			'icon_color'      => 'inverse',
 			'icon_size'       => '5x',
 			'awesome_text'    => '',
 			'awesome_filter'  => '',
@@ -73,8 +74,6 @@ class Awesome_Featured_Widget extends WP_Widget {
 
 		// User-selected settings.
 		$awesome_title   = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
-		$awesome_icon    = $instance['awesome_icon'];
-		$icon_size       = $instance['icon_size'];
 		$title_placement = $instance['title_placement'];
 		$awesome_text    = apply_filters( 'widget_text', empty( $instance['awesome_text'] ) ? '' : $instance['awesome_text'], $instance );
 		$before_icon     = '';
@@ -85,9 +84,9 @@ class Awesome_Featured_Widget extends WP_Widget {
 		// Add a link to the content to the widget title.
 		if (  ! empty( $instance['content_id'] ) ) {
 			$before_title .= '<a href="'. get_permalink( $instance['content_id'] ) .'" title="'. get_the_title( $instance['content_id'] ) .'">';
-			$after_title = '</a>' . $after_title;
-			$before_stack = '<a href="' . get_permalink( $instance['content_id'] ) . '" title="'. get_the_title( $instance['content_id'] ) .'">';
-			$after_stack  = '</a>';
+			$after_title   = '</a>' . $after_title;
+			$before_stack  = '<a class="awesome-link" href="' . get_permalink( $instance['content_id'] ) . '" title="'. get_the_title( $instance['content_id'] ) .'">';
+			$after_stack   = '</a>';
 		}
 
 		// Check for the title before the icon.
@@ -106,13 +105,17 @@ class Awesome_Featured_Widget extends WP_Widget {
 			echo $before_icon;
 
 			// Display the icon if it's been set.
-			if ( ! empty( $awesome_icon ) ) {
-				echo $before_stack;
-					echo'<span class="fa-stack fa-' . strip_tags( $instance['icon_size'] ) . '">';
-						echo'<i class="fa fa-circle fa-stack-2x"></i>';
-						echo'<i class="fa ' . esc_attr( $awesome_icon ) . ' fa-stack-1x fa-inverse"></i>';
-					echo'</span>';
-				echo $after_stack;
+			if ( ! empty( $instance['awesome_icon'] ) ) {
+
+				$stack_output = $before_stack;
+					$stack_output .= '<span class="fa-stack fa-' . wp_strip_all_tags( $instance['icon_size'] ) . ' awesome-stack">';
+						$stack_output .= '<i class="fa fa-circle fa-stack-2x awesome-bg"></i>';
+						$stack_output .='<i class="fa ' . esc_attr( $instance['awesome_icon'] ) . ' fa-stack-1x fa-' . wp_strip_all_tags( $instance['icon_color'] ) . ' awesome-icon"></i>';
+					$stack_output .='</span>';
+				$stack_output .= $after_stack;
+
+				// Output the stack markup and allow it to be filtered.
+				echo apply_filters( 'afcw_awesome_stack', $stack_output, $args, $before_stack, $after_stack );
 			}
 
 			echo $after_icon;
@@ -136,14 +139,15 @@ class Awesome_Featured_Widget extends WP_Widget {
 	 * @return array Settings to save or bool false to cancel saving
 	 */
 	function update( $new_instance, $old_instance ) {
-		$new_instance['title']            = strip_tags( $new_instance['title'] );
-		$new_instance['awesome_icon']     = strip_tags( $new_instance['awesome_icon'] );
-		$new_instance['icon_size']        = strip_tags( $new_instance['icon_size'] );
-		$new_instance['title_placement']   = strip_tags( $new_instance['title_placement'] );
+		$new_instance['title']            = wp_strip_all_tags( $new_instance['title'] );
+		$new_instance['awesome_icon']     = wp_strip_all_tags( $new_instance['awesome_icon'] );
+		$new_instance['icon_color']       = wp_strip_all_tags( $new_instance['icon_color'] );
+		$new_instance['icon_size']        = wp_strip_all_tags( $new_instance['icon_size'] );
+		$new_instance['title_placement']  = wp_strip_all_tags( $new_instance['title_placement'] );
 		if ( current_user_can( 'unfiltered_html' ) ) {
 			$new_instance['awesome_text'] =  $new_instance['awesome_text'];
 		} else {
-			$new_instance['awesome_text'] = stripslashes( wp_filter_post_kses( addslashes( $new_instance['awesome_text'] ) ) );
+			$new_instance['awesome_text'] = wp_kses_data( $new_instance['awesome_text'] );
 		}
 		$new_instance['awesome_filter']   = isset( $new_instance['awesome_filter'] );
 
@@ -159,10 +163,8 @@ class Awesome_Featured_Widget extends WP_Widget {
 
 		/** Merge with defaults */
 		$instance      = wp_parse_args( (array) $instance, $this->defaults );
-		$title         = strip_tags( $instance['title'] );
-		$content_id    = intval( $instance['content_id'] );
+		$title         = wp_strip_all_tags( $instance['title'] );
 		$awesome_text  = esc_textarea( $instance['awesome_text'] );
-		$icon_size     = strip_tags( $instance['icon_size'] );
 		$awesome_icons = afcw_get_icons();
 
 		?>
@@ -182,8 +184,16 @@ class Awesome_Featured_Widget extends WP_Widget {
 			<label for="<?php echo $this->get_field_id( 'awesome_icon' ); ?>"><?php _e( 'Choose an Icon', 'afcw' ); ?>:</label>
 			<select class="widefat font-awesome" id="<?php echo $this->get_field_id( 'awesome_icon' ); ?>" name="<?php echo $this->get_field_name( 'awesome_icon' ); ?>">
 				<?php foreach ( (array) $awesome_icons as $icon  ) { ?>
-				<option value="<?php echo $icon['value']; ?>"<?php selected( $icon['value'], $instance['awesome_icon'] ); ?>><?php _e( $icon['name'], 'afcw' ) ?></option>
+					<option value="<?php echo $icon['value']; ?>"<?php selected( $icon['value'], $instance['awesome_icon'] ); ?>><?php _e( $icon['name'], 'afcw' ) ?></option>
 				<?php } ?>
+			</select>
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'icon_color' ); ?>"><?php _e( 'Icon Color', 'afcw' ); ?>:</label>
+			<select class="widefat awesome-select" id="<?php echo $this->get_field_id( 'icon_color' ); ?>" name="<?php echo $this->get_field_name( 'icon_color' ); ?>">
+				<option value="inverse" <?php selected( 'inverse', $instance['icon_color'] ); ?>><?php _e( 'Light', 'afcw' ); ?></option>
+				<option value="dark" <?php selected( 'dark', $instance['icon_color'] ); ?>><?php _e( 'Dark', 'afcw' ); ?></option>
+				<option value="overlay" <?php selected( 'overlay', $instance['icon_color'] ); ?>><?php _e( 'Overlay', 'afcw' ); ?></option>
 			</select>
 		</p>
 		<p>
@@ -201,10 +211,10 @@ class Awesome_Featured_Widget extends WP_Widget {
 			<?php afcw_dropdown_posts( $this->get_field_name( 'content_id' ), $instance['content_id'] ); ?>
 		</p>
 
-		<textarea class="widefat" rows="10" cols="20" id="<?php echo $this->get_field_id('awesome_text'); ?>" name="<?php echo $this->get_field_name('awesome_text'); ?>"><?php echo $awesome_text; ?></textarea>
+		<textarea class="widefat" rows="10" cols="20" id="<?php echo $this->get_field_id( 'awesome_text' ); ?>" name="<?php echo $this->get_field_name( 'awesome_text' ); ?>"><?php echo $awesome_text; ?></textarea>
 		<p>
-			<input id="<?php echo $this->get_field_id('awesome_filter'); ?>" name="<?php echo $this->get_field_name('awesome_filter'); ?>" type="checkbox" <?php checked(isset($instance['awesome_filter']) ? $instance['awesome_filter'] : 0); ?> />&nbsp;
-			<label for="<?php echo $this->get_field_id('awesome_filter'); ?>"><?php _e('Automatically add paragraphs', 'afcw'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'awesome_filter' ); ?>" name="<?php echo $this->get_field_name( 'awesome_filter' ); ?>" type="checkbox" <?php checked( isset( $instance['awesome_filter'] ) ? $instance['awesome_filter'] : 0 ); ?> />&nbsp;
+			<label for="<?php echo $this->get_field_id( 'awesome_filter' ); ?>"><?php _e( 'Automatically add paragraphs', 'afcw' ); ?></label>
 		</p>
 
 		<?php
