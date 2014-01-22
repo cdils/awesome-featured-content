@@ -99,6 +99,10 @@ class Awesome_Featured_Widget extends WP_Widget {
 			$after_icon = $before_title . $awesome_title . $after_title;
 		}
 
+		// Enqueue styles whenever the widget is present.
+		wp_enqueue_style( 'afcw-font-awesome');
+		wp_enqueue_style( 'afcw-styles');
+
 		// Output the widget's HTML.
 		echo $before_widget;
 
