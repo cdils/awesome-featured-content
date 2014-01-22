@@ -5,9 +5,17 @@ a .fa:before {
 
 .awesome-feature .fa-stack {
 	display: block;
-	margin: 0 auto;
+	margin: 0 auto 10px;
 }
 
 .awesome-feature .widget-title {
 	background: transparent;
+}
+
+.fa-dark {
+    color: #000;
+}
+
+.fa-overlay {
+    color: rgba(21, 21, 21, 0.38);
 }
