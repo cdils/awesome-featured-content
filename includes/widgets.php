@@ -12,10 +12,10 @@
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-add_action("widgets_init", "afcw_load_widgets");
+add_action( 'widgets_init', 'afcw_load_widgets' );
 
 /**
- * Register widgets for use in the Modern Portfolio theme.
+ * Register awesome featured widget.
  *
  * @since 1.0.0
  */

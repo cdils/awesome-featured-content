@@ -12,7 +12,7 @@
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-add_action( 'wp_enqueue_scripts', 'afcw_add_styles' );
+add_action( 'wp_enqueue_scripts', 'afcw_enqueue_styles' );
 /**
  * Registers and loads the Font Awesome
  * library and other required styles.
@@ -20,8 +20,7 @@ add_action( 'wp_enqueue_scripts', 'afcw_add_styles' );
  * @since 1.0.0
  * @global $wp_styles
  */
-function afcw_add_styles() {
-	global $wp_styles;
+function afcw_enqueue_styles() {
 	$css_url = AFCW_PLUGIN_URL . 'assets/css/';
 
 	// Enqueu styles
