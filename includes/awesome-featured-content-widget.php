@@ -100,8 +100,10 @@ class Awesome_Featured_Widget extends WP_Widget {
 		}
 
 		// Enqueue styles whenever the widget is present.
-		wp_enqueue_style( 'afcw-font-awesome');
 		wp_enqueue_style( 'afcw-styles');
+		if ( ! wp_style_is( 'font-awesome', $list = 'enqueued' ) ) {
+			wp_enqueue_style( 'font-awesome', $css_url . 'font-awesome.min.css', array(), '4.0.3' );
+		}
 
 		// Output the widget's HTML.
 		echo $before_widget;
