@@ -27,7 +27,7 @@ function afcw_admin_enqueue_styles( $hook ) {
 	}
 
 	wp_enqueue_style( 'afcw-select2-css', $css_uri . 'select2.css', array(), '3.4.0' );
-	wp_enqueue_style( 'afcw-font-awesome', $css_uri . 'font-awesome.min.css', array(), '4.0.3' );
+	wp_enqueue_style( 'afcw-font-awesome', $css_uri . 'font-awesome.min.css', array(), '4.4.0' );
 	wp_enqueue_style( 'afcw-admin', $css_uri . 'admin.css', array(), AFCW_VERSION );
 }
 
