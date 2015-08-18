@@ -22,6 +22,6 @@ add_action( 'wp_enqueue_scripts', 'afcw_enqueue_styles' );
 function afcw_enqueue_styles() {
 	$css_url = AFCW_PLUGIN_URL . 'assets/css/';
 	// Register styles
-	wp_register_style( 'afcw-font-awesome', $css_url . 'font-awesome.min.css', array(), '4.0.3' );
+	wp_register_style( 'afcw-font-awesome', $css_url . 'font-awesome.min.css', array(), '4.4.0' );
 	wp_register_style( 'afcw-styles', $css_url . 'awesome-styles.css', array(), AFCW_VERSION );
 }
